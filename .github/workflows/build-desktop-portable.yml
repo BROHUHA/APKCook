@@ -1,0 +1,52 @@
+name: Build Portable Desktop Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      app-version:
+        description: "App version to stamp into the build"
+        required: true
+        default: "1.2.8"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore APKCook.sln
+
+      - name: Build
+        run: >-
+          dotnet build src/APKCook.Avalonia/APKCook.Avalonia.csproj
+          --configuration Release
+          --no-restore
+          -p:Version="${{ inputs.app-version }}"
+          -p:InformationalVersion="${{ inputs.app-version }}"
+
+      - name: Publish
+        run: >-
+          dotnet publish src/APKCook.Avalonia/APKCook.Avalonia.csproj
+          --configuration Release
+          --runtime win-x64
+          --self-contained true
+          -p:PublishSingleFile=true
+          -p:IncludeNativeLibrariesForSelfExtract=true
+          -p:Version="${{ inputs.app-version }}"
+          -p:InformationalVersion="${{ inputs.app-version }}"
+          --output "${{ github.workspace }}\\publish"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: APKCook-windows-x64
+          path: publish
+          if-no-files-found: error

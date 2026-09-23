@@ -1,0 +1,27 @@
+## .NET Core / Visual Studio / IDE ignore rules
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Rr]elease/
+publish/
+artifacts/
+*.exe
+*.dll
+*.pdb
+
+# Visual Studio / Rider / VS Code cache
+.vs/
+.idea/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store

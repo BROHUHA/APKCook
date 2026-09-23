@@ -1,0 +1,389 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="APKCook.Avalonia.App"
+             RequestedThemeVariant="Dark">
+             <!-- "Dark" is the default theme variant. Both Dark and Light have high-contrast frosted glass styling. -->
+
+    <Application.Styles>
+        <FluentTheme />
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             FROSTED GLASS BUTTON — High-visibility frosted pill
+             ═══════════════════════════════════════════════════════════════ -->
+        <Style Selector="Button">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="9999" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="18,10" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPointerOverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPointerOverBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <Style Selector="Button:pressed">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPressedBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPressedBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <!-- Primary Action Button — High contrast accent pill -->
+        <Style Selector="Button.primary-action">
+            <Setter Property="Background" Value="{DynamicResource GlassPrimaryButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassPrimaryButtonBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="9999" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassPrimaryButtonForegroundBrush}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Padding" Value="20,10" />
+        </Style>
+
+        <Style Selector="Button.primary-action:pointerover">
+            <Setter Property="Background" Value="{DynamicResource GlassPrimaryButtonPointerOverBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassPrimaryButtonBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassPrimaryButtonForegroundBrush}" />
+        </Style>
+
+        <Style Selector="Button.primary-action:pressed">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPressedBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPressedBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <Style Selector="Button:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource CyberFocusBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.5" />
+        </Style>
+
+        <Style Selector="Button.primary-action:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource CyberFocusBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.5" />
+        </Style>
+
+        <Style Selector="Button:disabled">
+            <Setter Property="Background" Value="{DynamicResource CyberDisabledButtonBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CyberDisabledButtonBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource CyberDisabledButtonForegroundBrush}" />
+            <Setter Property="Opacity" Value="0.6" />
+        </Style>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             FROSTED GLASS INPUT CONTROLS
+             ═══════════════════════════════════════════════════════════════ -->
+        <Style Selector="TextBox">
+            <Setter Property="Background" Value="{DynamicResource GlassInputBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassInputBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+            <Setter Property="Padding" Value="14,10" />
+        </Style>
+
+        <Style Selector="TextBox.terminal-output">
+            <Setter Property="Background" Value="{DynamicResource CyberConsoleBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassInputBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="18" />
+            <Setter Property="FontFamily" Value="Consolas, Menlo, Monaco, 'Courier New', monospace" />
+            <Setter Property="Foreground" Value="{DynamicResource CyberConsoleForegroundBrush}" />
+            <Setter Property="Padding" Value="16,12" />
+        </Style>
+
+        <Style Selector="ComboBox">
+            <Setter Property="Background" Value="{DynamicResource GlassInputBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassInputBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+            <Setter Property="Padding" Value="14,8" />
+        </Style>
+
+        <Style Selector="ListBox">
+            <Setter Property="Background" Value="{DynamicResource GlassInputBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassInputBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="16" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <Style Selector="Expander">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassInputBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="20" />
+        </Style>
+
+        <Style Selector="CheckBox">
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <Style Selector="ToggleSwitch">
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             FROSTED GLASS CONTAINERS — Visible glass panels in both themes
+             ═══════════════════════════════════════════════════════════════ -->
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="{DynamicResource GlassCardBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassCardBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="24" />
+            <Setter Property="BoxShadow" Value="{DynamicResource GlassCardShadow}" />
+            <Setter Property="Padding" Value="22" />
+        </Style>
+
+        <Style Selector="Border.card.compact">
+            <Setter Property="CornerRadius" Value="18" />
+            <Setter Property="Padding" Value="16" />
+        </Style>
+
+        <Style Selector="Border.console-card">
+            <Setter Property="Background" Value="{DynamicResource CyberConsoleBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassCardBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="24" />
+            <Setter Property="BoxShadow" Value="{DynamicResource GlassCardShadow}" />
+            <Setter Property="Padding" Value="18" />
+        </Style>
+
+        <!-- Terminal Status Pills -->
+        <Style Selector="Border.status-pill">
+            <Setter Property="CornerRadius" Value="9999" />
+            <Setter Property="Padding" Value="12,4" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style Selector="Border.status-pill.online">
+            <Setter Property="Background" Value="{DynamicResource CyberStatusOnlineBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CyberStatusOnlineBorderBrush}" />
+        </Style>
+
+        <Style Selector="Border.status-pill.offline">
+            <Setter Property="Background" Value="{DynamicResource CyberStatusOfflineBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CyberStatusOfflineBorderBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.status-pill-text.online">
+            <Setter Property="Foreground" Value="{DynamicResource CyberStatusOnlineTextBrush}" />
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <Style Selector="TextBlock.status-pill-text.offline">
+            <Setter Property="Foreground" Value="{DynamicResource CyberStatusOfflineTextBrush}" />
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <!-- Neon Pill (Status indicator bar) -->
+        <Style Selector="Border.neon-pill">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BoxShadow" Value="{DynamicResource GlassCardShadow}" />
+            <Setter Property="CornerRadius" Value="9999" />
+            <Setter Property="Padding" Value="16,6" />
+        </Style>
+
+        <Style Selector="TextBlock.live-log-pill-title">
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="LetterSpacing" Value="0.8" />
+        </Style>
+
+        <Style Selector="TextBlock.live-log-pill-text">
+            <Setter Property="Foreground" Value="{DynamicResource GlassMutedForegroundBrush}" />
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <!-- Typography -->
+        <Style Selector="TextBlock.page-title">
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="LetterSpacing" Value="1" />
+        </Style>
+
+        <Style Selector="TextBlock.helper-text">
+            <Setter Property="Foreground" Value="{DynamicResource GlassMutedForegroundBrush}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+    </Application.Styles>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <!-- ═══════════════════════════════════════════════
+                     DARK THEME — Deep obsidian frosted liquid glass
+                     ═══════════════════════════════════════════════ -->
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="CyberBackgroundBrush" Color="#080A14" />
+                    <SolidColorBrush x:Key="CyberSidebarBrush" Color="#0D1120" />
+                    <SolidColorBrush x:Key="MainBackgroundBrush" Color="#080A14" />
+
+                    <!-- Frosted Glass Cards & Panels -->
+                    <SolidColorBrush x:Key="GlassCardBackgroundBrush" Color="#182036" />
+                    <SolidColorBrush x:Key="GlassCardBorderBrush" Color="#38FFFFFF" />
+                    <SolidColorBrush x:Key="GlassCardSpecularBrush" Color="#60FFFFFF" />
+                    <BoxShadows x:Key="GlassCardShadow">0 16 48 0 #55000000</BoxShadows>
+
+                    <!-- Frosted Glass Buttons -->
+                    <SolidColorBrush x:Key="GlassButtonBackgroundBrush" Color="#22FFFFFF" />
+                    <SolidColorBrush x:Key="GlassButtonBorderBrush" Color="#3DFFFFFF" />
+                    <SolidColorBrush x:Key="GlassButtonPointerOverBackgroundBrush" Color="#35FFFFFF" />
+                    <SolidColorBrush x:Key="GlassButtonPointerOverBorderBrush" Color="#58FFFFFF" />
+                    <SolidColorBrush x:Key="GlassButtonPressedBackgroundBrush" Color="#45FFFFFF" />
+                    <SolidColorBrush x:Key="GlassButtonPressedBorderBrush" Color="#70FFFFFF" />
+
+                    <!-- Primary Action Button (White Pill) -->
+                    <SolidColorBrush x:Key="GlassPrimaryButtonBackgroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="GlassPrimaryButtonBorderBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="GlassPrimaryButtonForegroundBrush" Color="#0A0E1A" />
+                    <SolidColorBrush x:Key="GlassPrimaryButtonPointerOverBrush" Color="#E8EFF8" />
+
+                    <!-- Frosted Glass Inputs -->
+                    <SolidColorBrush x:Key="GlassInputBackgroundBrush" Color="#18FFFFFF" />
+                    <SolidColorBrush x:Key="GlassInputBorderBrush" Color="#35FFFFFF" />
+
+                    <!-- Typography -->
+                    <SolidColorBrush x:Key="GlassForegroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="GlassMutedForegroundBrush" Color="#94A3B8" />
+                    <SolidColorBrush x:Key="GlassSubtleForegroundBrush" Color="#64748B" />
+
+                    <!-- Semantic Brushes -->
+                    <SolidColorBrush x:Key="CyberCardBrush" Color="#182036" />
+                    <SolidColorBrush x:Key="CyberCardBorderBrush" Color="#38FFFFFF" />
+                    <SolidColorBrush x:Key="CyberSpecularBorderBrush" Color="#60FFFFFF" />
+                    <SolidColorBrush x:Key="CyberAccentBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CyberAccentSecondaryBrush" Color="#94A3B8" />
+                    <SolidColorBrush x:Key="CyberWarningBrush" Color="#F59E0B" />
+                    <SolidColorBrush x:Key="CyberConsoleBackgroundBrush" Color="#0A0D18" />
+                    <SolidColorBrush x:Key="CyberConsoleForegroundBrush" Color="#E2E8F0" />
+                    <SolidColorBrush x:Key="CyberAccentMutedBrush" Color="#1A2038" />
+                    <SolidColorBrush x:Key="CyberAccentPressedBrush" Color="#253050" />
+                    <SolidColorBrush x:Key="CyberButtonPressedBrush" Color="#354060" />
+                    <SolidColorBrush x:Key="CyberPointerOverBrush" Color="#202840" />
+                    <SolidColorBrush x:Key="CyberSelectedBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CyberSelectedBorderBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CyberSelectedForegroundBrush" Color="#0A0E1A" />
+                    <SolidColorBrush x:Key="CyberPrimaryButtonForegroundBrush" Color="#0A0E1A" />
+                    <SolidColorBrush x:Key="CyberPressedButtonForegroundBrush" Color="#0A0E1A" />
+                    <SolidColorBrush x:Key="CyberFocusBorderBrush" Color="#60FFFFFF" />
+                    <SolidColorBrush x:Key="CyberDisabledButtonBrush" Color="#10182A" />
+                    <SolidColorBrush x:Key="CyberDisabledButtonBorderBrush" Color="#202840" />
+                    <SolidColorBrush x:Key="CyberDisabledButtonForegroundBrush" Color="#506080" />
+                    <SolidColorBrush x:Key="CyberHelperTextBrush" Color="#8090A8" />
+                    <SolidColorBrush x:Key="CyberStatusOnlineBackgroundBrush" Color="#0A2818" />
+                    <SolidColorBrush x:Key="CyberStatusOnlineBorderBrush" Color="#34D399" />
+                    <SolidColorBrush x:Key="CyberStatusOnlineTextBrush" Color="#A7F3D0" />
+                    <SolidColorBrush x:Key="CyberStatusOfflineBackgroundBrush" Color="#2D0F18" />
+                    <SolidColorBrush x:Key="CyberStatusOfflineBorderBrush" Color="#F87171" />
+                    <SolidColorBrush x:Key="CyberStatusOfflineTextBrush" Color="#FECACA" />
+                    <SolidColorBrush x:Key="CyberDestructiveForegroundBrush" Color="#F87171" />
+                    <SolidColorBrush x:Key="CyberDestructivePointerOverForegroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CyberDestructivePointerOverBrush" Color="#3F1420" />
+                    <SolidColorBrush x:Key="CyberDestructivePressedBrush" Color="#300F18" />
+                    <BoxShadows x:Key="CyberCardBoxShadow">0 16 48 0 #55000000</BoxShadows>
+                    <BoxShadows x:Key="CyberConsoleCardBoxShadow">0 8 32 0 #40000000</BoxShadows>
+                    <BoxShadows x:Key="CyberNeonPillBoxShadow">0 0 20 0 #18FFFFFF</BoxShadows>
+
+                    <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#0D1120" />
+                    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#182036" />
+                    <SolidColorBrush x:Key="CardBorderBrush" Color="#38FFFFFF" />
+                    <SolidColorBrush x:Key="ConsoleBorderBrush" Color="#404868" />
+                </ResourceDictionary>
+
+                <!-- ═══════════════════════════════════════════════
+                     LIGHT THEME — Frosted pearl glass with crisp text
+                     ═══════════════════════════════════════════════ -->
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="CyberBackgroundBrush" Color="#EDF2F7" />
+                    <SolidColorBrush x:Key="CyberSidebarBrush" Color="#E2E8F0" />
+                    <SolidColorBrush x:Key="MainBackgroundBrush" Color="#EDF2F7" />
+
+                    <!-- Frosted Glass Cards & Panels -->
+                    <SolidColorBrush x:Key="GlassCardBackgroundBrush" Color="#F8FAFC" />
+                    <SolidColorBrush x:Key="GlassCardBorderBrush" Color="#CBD5E1" />
+                    <SolidColorBrush x:Key="GlassCardSpecularBrush" Color="#FFFFFF" />
+                    <BoxShadows x:Key="GlassCardShadow">0 12 36 0 #150F172A</BoxShadows>
+
+                    <!-- Frosted Glass Buttons -->
+                    <SolidColorBrush x:Key="GlassButtonBackgroundBrush" Color="#E2E8F0" />
+                    <SolidColorBrush x:Key="GlassButtonBorderBrush" Color="#CBD5E1" />
+                    <SolidColorBrush x:Key="GlassButtonPointerOverBackgroundBrush" Color="#D8E0EC" />
+                    <SolidColorBrush x:Key="GlassButtonPointerOverBorderBrush" Color="#94A3B8" />
+                    <SolidColorBrush x:Key="GlassButtonPressedBackgroundBrush" Color="#CBD5E1" />
+                    <SolidColorBrush x:Key="GlassButtonPressedBorderBrush" Color="#64748B" />
+
+                    <!-- Primary Action Button (Dark Slate Pill) -->
+                    <SolidColorBrush x:Key="GlassPrimaryButtonBackgroundBrush" Color="#0F172A" />
+                    <SolidColorBrush x:Key="GlassPrimaryButtonBorderBrush" Color="#0F172A" />
+                    <SolidColorBrush x:Key="GlassPrimaryButtonForegroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="GlassPrimaryButtonPointerOverBrush" Color="#1E293B" />
+
+                    <!-- Frosted Glass Inputs -->
+                    <SolidColorBrush x:Key="GlassInputBackgroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="GlassInputBorderBrush" Color="#CBD5E1" />
+
+                    <!-- Typography (CRISP HIGH CONTRAST) -->
+                    <SolidColorBrush x:Key="GlassForegroundBrush" Color="#0F172A" />
+                    <SolidColorBrush x:Key="GlassMutedForegroundBrush" Color="#475569" />
+                    <SolidColorBrush x:Key="GlassSubtleForegroundBrush" Color="#64748B" />
+
+                    <!-- Semantic Brushes -->
+                    <SolidColorBrush x:Key="CyberCardBrush" Color="#F8FAFC" />
+                    <SolidColorBrush x:Key="CyberCardBorderBrush" Color="#CBD5E1" />
+                    <SolidColorBrush x:Key="CyberSpecularBorderBrush" Color="#94A3B8" />
+                    <SolidColorBrush x:Key="CyberAccentBrush" Color="#0F172A" />
+                    <SolidColorBrush x:Key="CyberAccentSecondaryBrush" Color="#475569" />
+                    <SolidColorBrush x:Key="CyberWarningBrush" Color="#D97706" />
+                    <SolidColorBrush x:Key="CyberConsoleBackgroundBrush" Color="#F8FAFC" />
+                    <SolidColorBrush x:Key="CyberConsoleForegroundBrush" Color="#0F172A" />
+                    <SolidColorBrush x:Key="CyberAccentMutedBrush" Color="#E2E8F0" />
+                    <SolidColorBrush x:Key="CyberAccentPressedBrush" Color="#CBD5E1" />
+                    <SolidColorBrush x:Key="CyberButtonPressedBrush" Color="#94A3B8" />
+                    <SolidColorBrush x:Key="CyberPointerOverBrush" Color="#E2E8F0" />
+                    <SolidColorBrush x:Key="CyberSelectedBrush" Color="#0F172A" />
+                    <SolidColorBrush x:Key="CyberSelectedBorderBrush" Color="#0F172A" />
+                    <SolidColorBrush x:Key="CyberSelectedForegroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CyberPrimaryButtonForegroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CyberPressedButtonForegroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CyberFocusBorderBrush" Color="#0F172A" />
+                    <SolidColorBrush x:Key="CyberDisabledButtonBrush" Color="#F1F5F9" />
+                    <SolidColorBrush x:Key="CyberDisabledButtonBorderBrush" Color="#E2E8F0" />
+                    <SolidColorBrush x:Key="CyberDisabledButtonForegroundBrush" Color="#94A3B8" />
+                    <SolidColorBrush x:Key="CyberHelperTextBrush" Color="#64748B" />
+                    <SolidColorBrush x:Key="CyberStatusOnlineBackgroundBrush" Color="#ECFDF5" />
+                    <SolidColorBrush x:Key="CyberStatusOnlineBorderBrush" Color="#10B981" />
+                    <SolidColorBrush x:Key="CyberStatusOnlineTextBrush" Color="#065F46" />
+                    <SolidColorBrush x:Key="CyberStatusOfflineBackgroundBrush" Color="#FEF2F2" />
+                    <SolidColorBrush x:Key="CyberStatusOfflineBorderBrush" Color="#EF4444" />
+                    <SolidColorBrush x:Key="CyberStatusOfflineTextBrush" Color="#991B1B" />
+                    <SolidColorBrush x:Key="CyberDestructiveForegroundBrush" Color="#DC2626" />
+                    <SolidColorBrush x:Key="CyberDestructivePointerOverForegroundBrush" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="CyberDestructivePointerOverBrush" Color="#DC2626" />
+                    <SolidColorBrush x:Key="CyberDestructivePressedBrush" Color="#B91C1C" />
+                    <BoxShadows x:Key="CyberCardBoxShadow">0 12 36 0 #150F172A</BoxShadows>
+                    <BoxShadows x:Key="CyberConsoleCardBoxShadow">0 8 24 0 #100F172A</BoxShadows>
+                    <BoxShadows x:Key="CyberNeonPillBoxShadow">0 0 14 0 #18000000</BoxShadows>
+
+                    <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#E2E8F0" />
+                    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#F8FAFC" />
+                    <SolidColorBrush x:Key="CardBorderBrush" Color="#CBD5E1" />
+                    <SolidColorBrush x:Key="ConsoleBorderBrush" Color="#94A3B8" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

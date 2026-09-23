@@ -1,0 +1,94 @@
+using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Markup.Xaml;
+using Microsoft.Extensions.DependencyInjection;
+using APKCook.Avalonia.Services;
+using APKCook.Core.Abstractions;
+using APKCook.Core.Abstractions.Patching;
+using APKCook.Core.Services;
+using APKCook.Core.Services.Patching;
+using APKCook.Core.ViewModels;
+using System;
+
+namespace APKCook.Avalonia;
+
+public partial class App : Application
+{
+    public IServiceProvider? Services { get; private set; }
+
+    public override void Initialize()
+    {
+        AvaloniaXamlLoader.Load(this);
+    }
+
+    public override void OnFrameworkInitializationCompleted()
+    {
+        var services = new ServiceCollection();
+        ConfigureServices(services);
+        Services = services.BuildServiceProvider();
+
+        // Initialize settings/localization
+        var settingsService = Services.GetRequiredService<ISettingsService>();
+        LocalizationService.Instance.Initialize(settingsService);
+        var themeService = Services.GetRequiredService<IThemeService>();
+        themeService.ApplyTheme(settingsService.Settings.ThemeMode);
+
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            var mainWindow = Services.GetRequiredService<MainWindow>();
+            desktop.MainWindow = mainWindow;
+        }
+
+        base.OnFrameworkInitializationCompleted();
+    }
+
+    private void ConfigureServices(IServiceCollection services)
+    {
+        // Core Services
+        services.AddSingleton<ISettingsService, SettingsService>();
+        services.AddSingleton<IAppLogService, AppLogService>();
+        services.AddSingleton<IToolRepository, ToolRepository>();
+        services.AddHttpClient<IToolDownloadService, ToolDownloadService>();
+        services.AddSingleton(LocalizationService.Instance);
+        services.AddTransient<ApktoolRunner>();
+        services.AddTransient<UbersignRunner>();
+        services.AddTransient<SmaliAnalyserService>();
+        services.AddTransient<ReportService>();
+        services.AddSingleton<AdbService>();
+        services.AddSingleton<ISystemService, APKCook.Core.Services.SystemService>();
+
+        // Patching services
+        services.AddTransient<PatchRequestValidatorService>();
+        services.AddTransient<IArchitectureDetectionService, ArchitectureDetectionService>();
+        services.AddHttpClient<IFridaArtifactService, FridaArtifactService>();
+        services.AddTransient<IApktoolService, ApktoolServiceAdapter>();
+        services.AddTransient<IActivityDetectionService, ActivityDetectionService>();
+        services.AddTransient<IManifestPatchService, ManifestPatchService>();
+        services.AddTransient<IGadgetInjectionService, GadgetInjectionService>();
+        services.AddTransient<ISmaliPatchService, SmaliPatchService>();
+        services.AddTransient<IDexMergeService, DexMergeService>();
+        services.AddTransient<ISigningService, SigningService>();
+        services.AddTransient<IDexMethodLookupService, DexMethodLookupService>();
+        services.AddTransient<IFinalDexInspectionService, FinalDexInspectionService>();
+        services.AddTransient<IPatchPipelineService, PatchPipelineService>();
+
+        // Avalonia Services
+        services.AddSingleton<IDialogService, AvaloniaDialogService>();
+        services.AddSingleton<IDispatcherService, AvaloniaDispatcherService>();
+        services.AddSingleton<IFilePickerService, AvaloniaFilePickerService>();
+        services.AddSingleton<IThemeService, AvaloniaThemeService>();
+
+        // ViewModels
+        services.AddSingleton<MainViewModel>();
+        services.AddTransient<DecompileViewModel>();
+        services.AddTransient<BuildViewModel>();
+        services.AddTransient<PatchViewModel>();
+        services.AddTransient<SettingsViewModel>();
+        services.AddTransient<AnalyserViewModel>();
+        services.AddTransient<DeviceToolsViewModel>();
+        services.AddTransient<AboutViewModel>();
+
+        // Windows
+        services.AddTransient<MainWindow>();
+    }
+}

@@ -1,0 +1,128 @@
+# APKCook
+
+<p align="center">
+  🌍 <strong>Languages</strong><br>
+  <a href="README.md">English</a> |
+  <a href="README.de.md">Deutsch</a> |
+  <a href="README.es.md">Español</a> |
+  <a href="README.fr.md">Français</a> |
+  <a href="README.he.md">עברית</a> |
+  <a href="README.ko.md">한국어</a> |
+  <a href="README.be.md">Беларуская</a> |
+  <a href="README.fi.md">Suomi</a> |
+  <a href="README.lv.md">Latviešu</a> |
+  <a href="README.et.md">Eesti</a> |
+  <a href="README.lt.md">Lietuvių</a> |
+  <a href="README.cs.md">Čeština</a> |
+  <a href="README.sk.md">Slovenčina</a> |
+  <a href="README.hu.md">Magyar</a> |
+  <a href="README.ar.md">العربية</a> |
+  <a href="README.pt.md">Português</a> |
+  <a href="README.ru.md">Русский</a> |
+  <a href="README.uk.md">Українська</a> |
+  <a href="README.zh.md">中文</a>
+</p>
+
+**APKCook** ir profesionāls Android reversās inženierijas un drošības analīzes GUI, kas veidots ar Avalonia (.NET 8). Tas apvieno `apktool` jaudu ar uzlabotām statiskās analīzes iespējām, ietērpts augstas veiktspējas, kiberpanka iedvesmotā saskarnē. APKCook racionalizē visu darbplūsmu no dekompilēšanas līdz analīzei, pārbūvei un parakstīšanai.
+
+[Skatīt demo YouTube](https://youtu.be/Mkdt0c-7Wwg)
+
+APKCook ir organizēts kā vienloga darbplūsma ar augšējo navigāciju katram rīkam: **Decompile**, **Build**, **Analyser**, **Settings** un **About**. Katra sadaļa aptver vienu APK dzīves cikla posmu, lai jūs varētu pāriet no dekodēšanas uz analīzi un parakstīšanu, neizejot no lietotnes.
+
+## Galvenās funkcijas
+
+- **🛡️ Statiskā drošības analīze**: automātiski skenē Smali kodu, lai noteiktu ievainojamības, tostarp root noteikšanu, emulatora pārbaudes, cieti iekodētus akreditācijas datus un nedrošu SQL/HTTP lietojumu.
+- **⚙️ Dinamiska noteikumu dzinējs**: pilnībā pielāgojami analīzes noteikumi, izmantojot `smali_analysis_rules.json`. Noteikšanas paraugus var mainīt bez lietotnes restartēšanas. Kešošana nodrošina optimālu veiktspēju.
+- **🚀 Moderns UI/UX**: responsīva tumšā tēma, kas paredzēta efektivitātei, ar reāllaika konsoles atgriezenisko saiti.
+- **📦 Pilnīga darbplūsma**: dekompilēt, analizēt, rediģēt, pārbūvēt un parakstīt APK vienā vidē.
+- **⚡ Drošs un stabils**: ietver gudru validāciju un avāriju novēršanas mehānismus, lai aizsargātu darba vidi un datus.
+- **🔧 Pilnībā konfigurējams**: ērta rīku ceļu (Java, Apktool), darba vides iestatījumu un analīzes parametru pārvaldība.
+
+## Paplašinātās iespējas
+
+### Drošības analīze
+APKCook ietver iebūvētu statisko analizatoru, kas skenē dekompilētu kodu, meklējot izplatītus drošības indikatorus:
+- **Root noteikšana**: identificē Magisk, SuperSU un izplatītu root bināru pārbaudes.
+- **Emulatora noteikšana**: atrod QEMU, Genymotion un specifisku sistēmas īpašību pārbaudes.
+- **Jutīgi dati**: skenē cieti iekodētas API atslēgas, tokenus un Basic Auth galvenes.
+- **Nedroša tīkla lietošana**: atzīmē HTTP lietojumu un iespējamos datu noplūdes punktus.
+
+*Noteikumi ir definēti `smali_analysis_rules.json` failā un tos var pielāgot savām vajadzībām.*
+
+### APK pārvaldība
+- **Dekomplēšana**: viegli atkodē resursus un avotus ar konfigurējamām opcijām.
+- **Pārbūve**: pārbūvē modificētus projektus derīgos APK.
+- **Parakstīšana**: integrēta keystore pārvaldība pārbūvēto APK parakstīšanai, lai tie būtu gatavi instalēšanai.
+
+## Prasības
+
+1.  **Java Runtime Environment (JRE)**: nepieciešams `apktool`. Pārliecinieties, ka `java` ir jūsu sistēmas `PATH`.
+2.  **Apktool**: lejupielādējiet `apktool.jar` no [ibotpeaches.github.io](https://ibotpeaches.github.io/Apktool/).
+3.  **Ubersign (Uber APK Signer)**: nepieciešams pārbūvēto APK parakstīšanai. Lejupielādējiet jaunāko `uber-apk-signer.jar` no [GitHub releases](https://github.com/patrickfav/uber-apk-signer/releases).
+4.  **.NET 8.0 Runtime**: nepieciešams APKCook palaišanai atbalstītās platformās (Windows, Linux un macOS).
+
+## Ātrās palaišanas ceļvedis
+
+1.  **Lejupielādēt un uzbūvēt**
+    ```powershell
+    dotnet build
+    dotnet run
+    ```
+
+2.  **Iestatīšana**
+    - Atveriet **Settings**.
+    - Norādiet ceļu uz `apktool.jar`.
+    - APKCook automātiski noteiks Java instalāciju pēc vides mainīgajiem.
+
+3.  **APK analīze**
+    - **Dekomplējiet** mērķa APK cilnē Decompile.
+    - Pārslēdzieties uz **Analysis** cilni.
+    - Izvēlieties dekompilēto projekta mapi.
+    - Noklikšķiniet uz **Analyze Smali**, lai izveidotu drošības pārskatu.
+
+4.  **Modificēt un pārbūvēt**
+    - Rediģējiet failus projekta mapē.
+    - Izmantojiet **Build** cilni, lai uzbūvētu jaunu APK.
+    - Izmantojiet **Sign** cilni, lai parakstītu izvades APK.
+
+
+## Ekrānattēli
+
+### 1) Dekompilēšanas darbplūsma
+![APKCook dekompilēšanas ekrāns](images/pulse_apk_decompile.png)
+- Šajā ekrānā izvēlaties ievades APK un izvades mapi, pēc tam palaižat dekompilēšanu.
+- Vienkārša plūsma: izvēlēties APK -> iestatīt izvades ceļu -> nospiest decompile.
+
+### 2) Būvēšanas darbplūsma
+![APKCook būvēšanas ekrāns](images/pulse_apk_build.png)
+- Šajā ekrānā dekompilētais projekts tiek pārbūvēts jaunā APK.
+- Vienkārša plūsma: izvēlēties projekta mapi -> iestatīt izvades nosaukumu/ceļu -> nospiest build (un vajadzības gadījumā ieslēgt parakstīšanu).
+
+### 3) Statiskās analīzes rezultāti
+![APKCook analīzes izvade](images/pulse_apk_analysis.png)
+- Šis skats parāda Smali/statiskās analīzes drošības atradumus.
+- Vienkārša plūsma: vispirms dekompilēt -> atvērt analīzes cilni/izvadi -> pārskatīt atradumus un eksportēt atskaiti.
+
+
+## Tehniskā arhitektūra
+
+APKCook izmanto tīru MVVM (Model-View-ViewModel) arhitektūru:
+
+- **Core**: .NET 8.0, Avalonia.
+- **Analysis**: pielāgots regex balstīts statiskās analīzes dzinējs ar karsti pārlādējamiem noteikumiem.
+- **Services**: specializēti servisi Apktool integrācijai, failu sistēmas uzraudzībai un iestatījumu pārvaldībai.
+
+## Licence
+
+Šis projekts ir atvērtā koda un pieejams saskaņā ar [Apache License 2.0](LICENSE.md).
+
+### ❤️ Atbalstiet projektu
+
+Ja APKCook jums ir noderīgs, varat atbalstīt tā izstrādi, nospiežot "Support" pogu lapas augšdaļā.
+
+Arī zvaigznītes piešķiršana repozitorijam ļoti palīdz.
+
+### Ieguldījums
+
+Mēs priecājamies par ieguldījumiem! Lūdzu, ņemiet vērā, ka visiem līdzautoriem ir jāparaksta [Contributor License Agreement (CLA)](CLA.md), lai viņu darbs varētu tikt likumīgi izplatīts.
+Iesniedzot pull request, jūs piekrītat CLA nosacījumiem.

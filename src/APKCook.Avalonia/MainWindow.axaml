@@ -1,0 +1,294 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:APKCook.Core.ViewModels;assembly=APKCook.Core"
+        xmlns:views="clr-namespace:APKCook.Avalonia.Views"
+        xmlns:services="clr-namespace:APKCook.Core.Services;assembly=APKCook.Core"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
+        x:Class="APKCook.Avalonia.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="{Binding WindowTitle}"
+        Icon="/Assets/APKCook.png"
+        Width="1160"
+        Height="720"
+        MinWidth="980"
+        MinHeight="600"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Styles>
+        <!-- Frosted Glass Navigation Pill Button -->
+        <Style Selector="Button.nav-button">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="9999" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Padding" Value="16,11" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+
+        <Style Selector="Button.nav-button:pointerover">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPointerOverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPointerOverBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <Style Selector="Button.nav-button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPointerOverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPointerOverBorderBrush}" />
+        </Style>
+
+        <Style Selector="Button.nav-button:pressed">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPressedBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPressedBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <!-- Active Nav — Accent Pill (Selected State) -->
+        <Style Selector="Button.nav-button.active">
+            <Setter Property="Background" Value="{DynamicResource GlassPrimaryButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassPrimaryButtonBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="9999" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassPrimaryButtonForegroundBrush}" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <Style Selector="Button.nav-button.active /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource GlassPrimaryButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassPrimaryButtonBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassPrimaryButtonForegroundBrush}" />
+        </Style>
+
+        <!-- User Guide — Frosted Glass -->
+        <Style Selector="Button.guide-button">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1.2" />
+            <Setter Property="CornerRadius" Value="9999" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="12,9" />
+        </Style>
+
+        <Style Selector="Button.guide-button:pointerover">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPointerOverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPointerOverBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <!-- Support Work — Frosted Glass -->
+        <Style Selector="Button.support-work-button">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="9999" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassMutedForegroundBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="Padding" Value="10,7" />
+        </Style>
+
+        <Style Selector="Button.support-work-button:pointerover">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPointerOverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPointerOverBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+
+        <Style Selector="Button.support-work-button:pressed">
+            <Setter Property="Background" Value="{DynamicResource GlassButtonPressedBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlassButtonPressedBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource GlassForegroundBrush}" />
+        </Style>
+    </Window.Styles>
+
+    <Window.DataTemplates>
+        <DataTemplate DataType="{x:Type vm:DecompileViewModel}">
+            <views:DecompileView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:BuildViewModel}">
+            <views:BuildView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PatchViewModel}">
+            <views:PatchView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+            <views:SettingsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AnalyserViewModel}">
+            <views:AnalyserView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:DeviceToolsViewModel}">
+            <views:DeviceToolsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AboutViewModel}">
+            <views:AboutView/>
+        </DataTemplate>
+    </Window.DataTemplates>
+
+    <Grid>
+        <Grid ColumnDefinitions="280, *">
+            <!-- Sidebar — Frosted Glass Panel -->
+            <Border Grid.Column="0"
+                    Background="{DynamicResource CyberSidebarBrush}"
+                    BorderBrush="{DynamicResource GlassCardBorderBrush}"
+                    BorderThickness="0,0,1,0"
+                    Padding="16">
+                <Grid RowDefinitions="Auto,*,Auto">
+                <StackPanel Grid.Row="0" Spacing="8">
+                    <!-- Brand Header with Logo (Left-aligned horizontal) -->
+                    <StackPanel Margin="0,0,0,12">
+                        <StackPanel Orientation="Horizontal" Spacing="14" Margin="4,4,0,10">
+                            <Border Width="48" Height="48"
+                                     CornerRadius="9999"
+                                     Background="{DynamicResource GlassButtonBackgroundBrush}"
+                                     BorderBrush="{DynamicResource GlassButtonBorderBrush}"
+                                     BorderThickness="1.5"
+                                     VerticalAlignment="Center">
+                                <Image Source="/Assets/APKCook.png"
+                                       Width="32" Height="32"
+                                       Stretch="Uniform"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Border>
+                            <StackPanel VerticalAlignment="Center" Spacing="2">
+                                <TextBlock Text="APKCook"
+                                           FontSize="22"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource GlassForegroundBrush}"
+                                           LetterSpacing="1"/>
+                                <TextBlock Text="REVERSE ENGINEERING LAB"
+                                           FontSize="8"
+                                           FontWeight="SemiBold"
+                                           Foreground="{DynamicResource GlassMutedForegroundBrush}"
+                                           LetterSpacing="2"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Border Height="1"
+                                Background="{DynamicResource GlassCardBorderBrush}"
+                                Margin="0,0,0,6"/>
+                    </StackPanel>
+
+                    <!-- Navigation Items -->
+                    <Button Classes="nav-button"
+                            Command="{Binding NavigateToDecompileCommand}"
+                            Classes.active="{Binding IsDecompileSelected}"
+                            IsVisible="{Binding IsDecompileEnabled}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[MenuDecompile]}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="nav-button"
+                            Command="{Binding NavigateToBuildCommand}"
+                            Classes.active="{Binding IsBuildSelected}"
+                            IsVisible="{Binding IsBuildEnabled}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[MenuBuild]}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="nav-button"
+                            Command="{Binding NavigateToPatchCommand}"
+                            Classes.active="{Binding IsPatchSelected}"
+                            IsVisible="{Binding IsPatchEnabled}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{Binding MenuPatchLabel}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="nav-button"
+                            Command="{Binding NavigateToAnalyserCommand}"
+                            Classes.active="{Binding IsAnalyserSelected}"
+                            IsVisible="{Binding IsAnalyserEnabled}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[MenuAnalyser]}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="nav-button"
+                            Command="{Binding NavigateToDeviceToolsCommand}"
+                            Classes.active="{Binding IsDeviceToolsSelected}"
+                            IsVisible="{Binding IsDeviceToolsEnabled}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{Binding MenuDeviceToolsLabel}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="nav-button"
+                            Command="{Binding NavigateToSettingsCommand}"
+                            Classes.active="{Binding IsSettingsSelected}"
+                            IsVisible="{Binding IsSettingsEnabled}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[MenuSettings]}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="nav-button"
+                            Command="{Binding NavigateToAboutCommand}"
+                            Classes.active="{Binding IsAboutSelected}"
+                            IsVisible="{Binding IsAboutEnabled}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[MenuAbout]}"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <!-- Sidebar Footer: User Guide & Support Work -->
+                <StackPanel Grid.Row="2" Spacing="8" Margin="0,14,0,0">
+                    <Button Classes="guide-button"
+                            Command="{Binding OpenUserGuideCommand}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
+                            <Path Data="M 12 4 C 7.58 4 4 7.58 4 12 C 4 16.42 7.58 20 12 20 C 16.42 20 20 16.42 20 12 C 20 7.58 16.42 4 12 4 Z M 11 8 L 13 8 L 13 10 L 11 10 Z M 11 12 L 13 12 L 13 16 L 11 16 Z"
+                                  Fill="{DynamicResource CyberAccentBrush}"
+                                  Width="13" Height="13"
+                                  Stretch="Uniform"
+                                  VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding UserGuideLabel}"
+                                       FontSize="12"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Classes="support-work-button"
+                            IsVisible="{Binding IsSupportWorkVisible}"
+                            Command="{Binding OpenSupportWorkCommand}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="6">
+                            <TextBlock Text="★"
+                                       FontSize="11"
+                                       Foreground="{DynamicResource CyberWarningBrush}"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[SupportWork]}"
+                                       FontSize="12"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Content -->
+            <Border Grid.Column="1" Background="{DynamicResource MainBackgroundBrush}" Padding="22">
+                <ContentControl Content="{Binding CurrentView}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"/>
+            </Border>
+        </Grid>
+
+        <!-- In-App User Guide Modal Overlay (Centered Frosted Glass) -->
+        <Grid IsVisible="{Binding IsUserGuideOpen}"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
+            <Border Background="#99000000"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" />
+            <views:UserGuideView DataContext="{Binding}"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Margin="32"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,129 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:APKCook.Core.ViewModels;assembly=APKCook.Core"
+             xmlns:services="clr-namespace:APKCook.Core.Services;assembly=APKCook.Core"
+             x:Class="APKCook.Avalonia.Views.AboutView"
+             x:DataType="vm:AboutViewModel">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto">
+        <Grid Margin="24"
+              MinHeight="560"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
+
+            <!-- Frosted Glass About Card -->
+            <Border Background="{DynamicResource GlassCardBackgroundBrush}"
+                    BorderBrush="{DynamicResource GlassCardBorderBrush}"
+                    BorderThickness="1.5"
+                    CornerRadius="28"
+                    BoxShadow="{DynamicResource GlassCardShadow}"
+                    Width="520"
+                    MaxWidth="580"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Padding="36,32">
+                <StackPanel Spacing="24"
+                            HorizontalAlignment="Stretch">
+
+                    <!-- Logo + Name Header (Frosted Glass Icon + Typography) -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Spacing="18">
+                        <Border Width="80"
+                                Height="80"
+                                CornerRadius="22"
+                                Background="{DynamicResource GlassButtonBackgroundBrush}"
+                                BorderBrush="{DynamicResource GlassButtonBorderBrush}"
+                                BorderThickness="1.5"
+                                Padding="10">
+                            <Image Source="avares://APKCook/Assets/APKCook.png"
+                                   Stretch="Uniform" />
+                        </Border>
+                        <StackPanel VerticalAlignment="Center" Spacing="4">
+                            <TextBlock Text="APKCook"
+                                       FontSize="34"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource GlassForegroundBrush}"
+                                       LetterSpacing="0.5" />
+                            <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[About_Subtitle]}"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource GlassMutedForegroundBrush}"
+                                       TextWrapping="Wrap"
+                                       MaxWidth="290" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Divider -->
+                    <Border Height="1"
+                            Background="{DynamicResource GlassCardBorderBrush}"
+                            Margin="16,0" />
+
+                    <!-- Version Badge (Frosted Glass Pill) -->
+                    <Border Background="{DynamicResource GlassButtonBackgroundBrush}"
+                            BorderBrush="{DynamicResource GlassButtonBorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="9999"
+                            Padding="22,7"
+                            HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding AppVersion}"
+                                   FontSize="13"
+                                   FontWeight="SemiBold"
+                                   Foreground="{DynamicResource GlassForegroundBrush}"
+                                   HorizontalAlignment="Center" />
+                    </Border>
+
+                    <!-- Developer Info Card (Frosted Glass Inset) -->
+                    <Border Background="{DynamicResource GlassButtonBackgroundBrush}"
+                            BorderBrush="{DynamicResource GlassButtonBorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="18"
+                            Padding="22,16">
+                        <StackPanel Spacing="8"
+                                    HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Spacing="6">
+                                <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[About_DevelopedBy]}"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource GlassMutedForegroundBrush}" />
+                                <TextBlock Text="{Binding DeveloperName}"
+                                           FontSize="13"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource GlassForegroundBrush}" />
+                            </StackPanel>
+                            <TextBlock Text="{Binding Year}"
+                                       FontSize="12"
+                                       HorizontalAlignment="Center"
+                                       Foreground="{DynamicResource GlassSubtleForegroundBrush}" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Action Buttons (Frosted Glass Pills) -->
+                    <StackPanel Spacing="10"
+                                HorizontalAlignment="Stretch">
+                        <Button Content="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[About_ProjectPage]}"
+                                Command="{Binding OpenProjectPageCommand}"
+                                Width="280"
+                                HorizontalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Classes="primary-action"
+                                FontWeight="SemiBold" />
+                        <Button Content="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[About_DeveloperPage]}"
+                                Command="{Binding OpenDeveloperPageCommand}"
+                                Width="280"
+                                HorizontalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Background="{DynamicResource GlassButtonBackgroundBrush}"
+                                BorderBrush="{DynamicResource GlassButtonBorderBrush}"
+                                BorderThickness="1.2"
+                                CornerRadius="9999"
+                                Foreground="{DynamicResource GlassMutedForegroundBrush}"
+                                Padding="18,10"
+                                FontWeight="Medium" />
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

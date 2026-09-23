@@ -1,0 +1,128 @@
+# APKCook
+
+<p align="center">
+  🌍 <strong>Languages</strong><br>
+  <a href="README.md">English</a> |
+  <a href="README.de.md">Deutsch</a> |
+  <a href="README.es.md">Español</a> |
+  <a href="README.fr.md">Français</a> |
+  <a href="README.he.md">עברית</a> |
+  <a href="README.ko.md">한국어</a> |
+  <a href="README.be.md">Беларуская</a> |
+  <a href="README.fi.md">Suomi</a> |
+  <a href="README.lv.md">Latviešu</a> |
+  <a href="README.et.md">Eesti</a> |
+  <a href="README.lt.md">Lietuvių</a> |
+  <a href="README.cs.md">Čeština</a> |
+  <a href="README.sk.md">Slovenčina</a> |
+  <a href="README.hu.md">Magyar</a> |
+  <a href="README.ar.md">العربية</a> |
+  <a href="README.pt.md">Português</a> |
+  <a href="README.ru.md">Русский</a> |
+  <a href="README.uk.md">Українська</a> |
+  <a href="README.zh.md">中文</a>
+</p>
+
+**APKCook** egy professzionális GUI Android visszafejtéshez és biztonsági elemzéshez, Avalonia (.NET 8)-cal készítve. Ötvözi az `apktool` nyers erejét a fejlett statikus elemzési képességekkel, mindezt egy nagy teljesítményű, cyberpunk ihlette felületen. A APKCook leegyszerűsíti a teljes munkafolyamatot a dekompilálástól az elemzésen át az újraépítésig és aláírásig.
+
+[Demo megtekintése YouTube-on](https://youtu.be/Mkdt0c-7Wwg)
+
+A APKCook egyablakos munkafolyamatként működik, felül eszköznavigációval: **Decompile**, **Build**, **Analyser**, **Settings** és **About**. Minden szakasz az APK életciklus egy lépésére fókuszál, így dekódolásról elemzésre és aláírásra válthatsz az alkalmazás elhagyása nélkül.
+
+## Főbb funkciók
+
+- **🛡️ Statikus biztonsági elemzés**: automatikusan vizsgálja a Smali kódot sérülékenységek után, beleértve a root észlelést, emulátor-ellenőrzéseket, keménykódolt hitelesítő adatokat és a nem biztonságos SQL/HTTP használatot.
+- **⚙️ Dinamikus szabálymotor**: teljesen testreszabható elemzési szabályok a `smali_analysis_rules.json` fájlban. Az észlelési minták újraindítás nélkül módosíthatók. A gyorsítótárazás optimális teljesítményt biztosít.
+- **🚀 Modern UI/UX**: reszponzív, sötét felület hatékony munkához, valós idejű konzolvisszajelzéssel.
+- **📦 Teljes munkafolyamat**: APK-k dekompilálása, elemzése, szerkesztése, újraépítése és aláírása egyetlen környezetben.
+- **⚡ Biztonságos és robusztus**: intelligens validációt és összeomlás-megelőző mechanizmusokat tartalmaz a munkaterület és adatok védelmére.
+- **🔧 Teljesen konfigurálható**: eszközútvonalak (Java, Apktool), munkaterület-beállítások és elemzési paraméterek könnyű kezelése.
+
+## Speciális képességek
+
+### Biztonsági elemzés
+A APKCook beépített statikus elemzőt tartalmaz, amely a dekompilált kódot gyakori biztonsági indikátorok után vizsgálja:
+- **Root észlelés**: azonosítja a Magisk, SuperSU és gyakori root binárisok ellenőrzéseit.
+- **Emulátor észlelés**: megtalálja a QEMU, Genymotion és bizonyos rendszerjellemzők ellenőrzéseit.
+- **Érzékeny adatok**: keménykódolt API-kulcsok, tokenek és Basic Auth fejlécek keresése.
+- **Nem biztonságos hálózat**: jelzi a HTTP használatot és a lehetséges adatkiáramlási pontokat.
+
+*A szabályok a `smali_analysis_rules.json` fájlban vannak definiálva, és igény szerint testreszabhatók.*
+
+### APK-kezelés
+- **Dekompilálás**: erőforrások és források dekódolása konfigurálható opciókkal.
+- **Újraépítés**: módosított projektek újbóli összeállítása érvényes APK-ká.
+- **Aláírás**: integrált keystore-kezelés az újraépített APK-k aláírásához, hogy telepítésre készek legyenek.
+
+## Előfeltételek
+
+1.  **Java Runtime Environment (JRE)**: szükséges az `apktool` használatához. Győződj meg róla, hogy a `java` szerepel a `PATH`-ban.
+2.  **Apktool**: töltsd le az `apktool.jar` fájlt innen: [ibotpeaches.github.io](https://ibotpeaches.github.io/Apktool/).
+3.  **Ubersign (Uber APK Signer)**: szükséges az újraépített APK-k aláírásához. Töltsd le a legújabb `uber-apk-signer.jar` fájlt a [GitHub releases](https://github.com/patrickfav/uber-apk-signer/releases) oldalról.
+4.  **.NET 8.0 Runtime**: szükséges a APKCook futtatásához támogatott platformokon (Windows, Linux és macOS).
+
+## Gyors indítási útmutató
+
+1.  **Letöltés és buildelés**
+    ```powershell
+    dotnet build
+    dotnet run
+    ```
+
+2.  **Beállítás**
+    - Nyisd meg a **Settings** menüt.
+    - Állítsd be az `apktool.jar` útvonalát.
+    - A APKCook automatikusan felismeri a Java telepítést a környezeti változók alapján.
+
+3.  **APK elemzése**
+    - **Dekompiláld** a cél APK-t a Decompile fülön.
+    - Válts az **Analysis** fülre.
+    - Válaszd ki a dekompilált projektmappát.
+    - Kattints az **Analyze Smali** gombra a biztonsági jelentés létrehozásához.
+
+4.  **Módosítás és újraépítés**
+    - Szerkeszd a projektmappában lévő fájlokat.
+    - A **Build** fülön készíts új APK-t.
+    - A **Sign** fülön írd alá a kimeneti APK-t.
+
+
+## Képernyőképek
+
+### 1) Dekompilálási folyamat
+![APKCook dekompilálási képernyő](images/pulse_apk_decompile.png)
+- Ezen a képernyőn kiválaszthatod a bemeneti APK-t és a kimeneti mappát, majd elindíthatod a dekompilálást.
+- Egyszerű folyamat: APK kiválasztása -> kimeneti útvonal beállítása -> decompile kattintás.
+
+### 2) Build folyamat
+![APKCook build képernyő](images/pulse_apk_build.png)
+- Ezen a képernyőn a dekompilált projektből új APK készül.
+- Egyszerű folyamat: projektmappa kiválasztása -> kimeneti név/útvonal beállítása -> build kattintás (és szükség esetén aláírás bekapcsolása).
+
+### 3) Statikus elemzés eredményei
+![APKCook elemzési kimenet](images/pulse_apk_analysis.png)
+- Ez a nézet a Smali/statikus elemzés biztonsági találatait mutatja.
+- Egyszerű folyamat: először dekompilálás -> elemzés fül/kimenet megnyitása -> találatok átnézése és jelentés exportálása.
+
+
+## Technikai architektúra
+
+A APKCook tiszta MVVM (Model-View-ViewModel) architektúrát használ:
+
+- **Core**: .NET 8.0, Avalonia.
+- **Analysis**: egyedi regex alapú statikus elemzőmotor hot-reloadolható szabályokkal.
+- **Services**: dedikált szolgáltatások Apktool integrációhoz, fájlrendszer-monitorozáshoz és beállításkezeléshez.
+
+## Licenc
+
+Ez a projekt nyílt forráskódú, és az [Apache License 2.0](LICENSE.md) alatt érhető el.
+
+### ❤️ Támogasd a projektet
+
+Ha a APKCook hasznos számodra, támogathatod a fejlesztést a felül található "Support" gomb megnyomásával.
+
+A repó csillagozása is sokat segít.
+
+### Közreműködés
+
+Szívesen fogadjuk a hozzájárulásokat! Kérjük, vedd figyelembe, hogy minden közreműködőnek alá kell írnia a [Contributor License Agreement (CLA)](CLA.md) dokumentumot, hogy a munkája jogszerűen terjeszthető legyen.
+Pull request beküldésével elfogadod a CLA feltételeit.

@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>APKCook</value>
+  </data>
+  <data name="MenuDecompile" xml:space="preserve">
+    <value>Декомпиляция</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="DecompileHeader" xml:space="preserve">
+    <value>Декомпиляция</value>
+  </data>
+  <data name="SelectApk" xml:space="preserve">
+    <value>Выбрать APK</value>
+  </data>
+  <data name="OutputFolder" xml:space="preserve">
+    <value>Папка вывода</value>
+  </data>
+  <data name="OutputApkLabel" xml:space="preserve">
+    <value>Путь к выходному APK</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Обзор</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Открыть</value>
+  </data>
+  <data name="DragDropHint" xml:space="preserve">
+    <value>Перетащите файл</value>
+  </data>
+  <data name="DecodeResources" xml:space="preserve">
+    <value>Декодировать ресурсы</value>
+  </data>
+  <data name="KeepOriginalManifest" xml:space="preserve">
+    <value>Сохранить исходный манифест</value>
+  </data>
+  <data name="ExtractToApkFolder" xml:space="preserve">
+    <value>Извлечь в папку, где находится APK</value>
+  </data>
+  <data name="DecodeSources" xml:space="preserve">
+    <value>Декодировать исходники</value>
+  </data>
+  <data name="RunDecompile" xml:space="preserve">
+    <value>Запустить декомпиляцию</value>
+  </data>
+  <data name="WaitingForCommand" xml:space="preserve">
+    <value>Ожидание команды...</value>
+  </data>
+  <data name="StartingApktool" xml:space="preserve">
+    <value>Запуск apktool...</value>
+  </data>
+  <data name="DecompileFailed" xml:space="preserve">
+    <value>Декомпиляция не удалась</value>
+  </data>
+  <data name="DecompileSuccessful" xml:space="preserve">
+    <value>Декомпиляция успешна</value>
+  </data>
+  <data name="Error_OutputFolderNotSet" xml:space="preserve">
+    <value>Папка вывода не указана.</value>
+  </data>
+  <data name="Error_FolderNotFound" xml:space="preserve">
+    <value>Папка '{0}' не существует.</value>
+  </data>
+  <data name="Error_CouldNotOpenFolder" xml:space="preserve">
+    <value>Не удалось открыть папку: {0}</value>
+  </data>
+  <data name="Error_MissingApktool" xml:space="preserve">
+    <value>Перед декомпиляцией укажите путь к apktool в настройках.</value>
+  </data>
+  <data name="Error_InvalidApktoolPath" xml:space="preserve">
+    <value>Путь к apktool '{0}' не существует. Обновите его в настройках.</value>
+  </data>
+  <data name="Error_InvalidApkFile" xml:space="preserve">
+    <value>Недопустимый файл APK</value>
+  </data>
+  <data name="Error_InvalidJarFile" xml:space="preserve">
+    <value>Недопустимый файл JAR</value>
+  </data>
+  <data name="Error_InvalidUbersignFile" xml:space="preserve">
+    <value>Недопустимый файл Ubersign</value>
+  </data>
+  <data name="Error_InvalidProjectSelection" xml:space="preserve">
+    <value>Перетащите корректную папку проекта с apktool.yml и AndroidManifest.xml.</value>
+  </data>
+  <data name="FileFilter_Apk" xml:space="preserve">
+    <value>Файлы APK (*.apk)|*.apk|Все файлы (*.*)|*.*</value>
+  </data>
+  <data name="FileFilter_Jar" xml:space="preserve">
+    <value>Файлы JAR (*.jar)|*.jar</value>
+  </data>
+  <data name="FileFilter_Ubersign" xml:space="preserve">
+    <value>Файлы Ubersign JAR (*.jar)|*.jar</value>
+  </data>
+  <data name="SettingsHeader" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="ApktoolPath" xml:space="preserve">
+    <value>Путь к Apktool</value>
+  </data>
+  <data name="UbersignPath" xml:space="preserve">
+    <value>Путь к Ubersign</value>
+  </data>
+  <data name="JavaPathNotFound" xml:space="preserve">
+    <value>Путь к JAVA: не найден</value>
+  </data>
+  <data name="JavaPathFound" xml:space="preserve">
+    <value>Путь к JAVA: {0}</value>
+  </data>
+  <data name="About_Subtitle" xml:space="preserve">
+    <value>Набор инструментов для реверс-инжиниринга Android APK</value>
+  </data>
+  <data name="SupportWork" xml:space="preserve">
+    <value>Поддержать проект</value>
+  </data>
+  <data name="About_DevelopedBy" xml:space="preserve">
+    <value>Разработано</value>
+  </data>
+  <data name="About_ProjectPage" xml:space="preserve">
+    <value>Страница проекта</value>
+  </data>
+  <data name="About_DeveloperPage" xml:space="preserve">
+    <value>Страница разработчика</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Версия: {0}</value>
+  </data>
+  <data name="DownloadApktool" xml:space="preserve">
+    <value>Скачать Apktool: </value>
+  </data>
+  <data name="DownloadJava" xml:space="preserve">
+    <value>Скачать JAVA: </value>
+  </data>
+  <data name="MenuBuild" xml:space="preserve">
+    <value>Сборка APK</value>
+  </data>
+  <data name="BuildHeader" xml:space="preserve">
+    <value>Сборка APK</value>
+  </data>
+  <data name="SelectProjectFolder" xml:space="preserve">
+    <value>Выбрать папку проекта</value>
+  </data>
+  <data name="SignApk" xml:space="preserve">
+    <value>Подписать APK</value>
+  </data>
+  <data name="UseAapt2" xml:space="preserve">
+    <value>Использовать AAPT2</value>
+  </data>
+  <data name="RunBuild" xml:space="preserve">
+    <value>Запустить сборку</value>
+  </data>
+  <data name="BuildSuccessful" xml:space="preserve">
+    <value>APK файл успешно создан.</value>
+  </data>
+  <data name="BuildFailed" xml:space="preserve">
+    <value>Создание APK не удалось</value>
+  </data>
+  <data name="Warning_InvalidProjectFolder" xml:space="preserve">
+    <value>Выбранная папка не похожа на проект apktool (нет apktool.yml или AndroidManifest.xml).</value>
+  </data>
+  <data name="DragDropFolderHint" xml:space="preserve">
+    <value>Перетащите папку</value>
+  </data>
+  <data name="MenuAnalyser" xml:space="preserve">
+    <value>Анализатор APK</value>
+  </data>
+  <data name="AnalyserHeader" xml:space="preserve">
+    <value>Анализатор APK</value>
+  </data>
+  <data name="RunAnalysis" xml:space="preserve">
+    <value>Запустить анализ</value>
+  </data>
+  <data name="AnalysisStarting" xml:space="preserve">
+    <value>Запуск анализа...</value>
+  </data>
+  <data name="AnalysisComplete" xml:space="preserve">
+    <value>Анализ завершен</value>
+  </data>
+  <data name="AnalysisFailed" xml:space="preserve">
+    <value>Анализ не удался</value>
+  </data>
+  <data name="RootCheckFound" xml:space="preserve">
+    <value>Проверка root: True</value>
+  </data>
+  <data name="RootCheckNotFound" xml:space="preserve">
+    <value>Проверка root: False</value>
+  </data>
+  <data name="EmulatorCheckFound" xml:space="preserve">
+    <value>Проверка эмулятора: True</value>
+  </data>
+  <data name="EmulatorCheckNotFound" xml:space="preserve">
+    <value>Проверка эмулятора: False</value>
+  </data>
+  <data name="CredentialsFound" xml:space="preserve">
+    <value>Жестко заданные логин/пароль: True</value>
+  </data>
+  <data name="CredentialsNotFound" xml:space="preserve">
+    <value>Жестко заданные логин/пароль: False</value>
+  </data>
+  <data name="SqlQueriesFound" xml:space="preserve">
+    <value>SQL запросы: True</value>
+  </data>
+  <data name="SqlQueriesNotFound" xml:space="preserve">
+    <value>SQL запросы: False</value>
+  </data>
+  <data name="HttpUrlsFound" xml:space="preserve">
+    <value>HTTP/HTTPS пути: True</value>
+  </data>
+  <data name="HttpUrlsNotFound" xml:space="preserve">
+    <value>HTTP/HTTPS пути: False</value>
+  </data>
+  <data name="FoundIn" xml:space="preserve">
+    <value>  Найдено в:</value>
+  </data>
+  <data name="Error_InvalidSmaliProject" xml:space="preserve">
+    <value>Выбранная папка не содержит файлы Smali.</value>
+  </data>
+  <data name="DownloadApktoolButton" xml:space="preserve">
+    <value>Скачать ApkTool</value>
+  </data>
+  <data name="DownloadJavaButton" xml:space="preserve">
+    <value>Скачать JAVA</value>
+  </data>
+  <data name="DownloadUbersignerButton" xml:space="preserve">
+    <value>Скачать Ubersigner</value>
+  </data>
+  <data name="ToolNameApktool" xml:space="preserve">
+    <value>Apktool</value>
+  </data>
+  <data name="ToolNameUbersigner" xml:space="preserve">
+    <value>Ubersigner</value>
+  </data>
+  <data name="ToolDownloadedSuccessfullyMessage" xml:space="preserve">
+    <value>{0} успешно загружен.</value>
+  </data>
+  <data name="LanguageLabel" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="SaveReport" xml:space="preserve">
+    <value>Сохранить отчет</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Запустить</value>
+  </data>
+  <data name="ApkName" xml:space="preserve">
+    <value>Имя APK</value>
+  </data>
+  <data name="ConsoleLog" xml:space="preserve">
+    <value>Терминал</value>
+  </data>
+  <data name="ApkPathPlaceholder" xml:space="preserve">
+    <value>Путь будет отображен после выбора APK-файла.</value>
+  </data>
+  <data name="ProjectFolderPathPlaceholder" xml:space="preserve">
+    <value>Путь будет отображен после выбора папки проекта.</value>
+  </data>
+  <data name="BrowseApkTip" xml:space="preserve">
+    <value>Подсказка: нажмите «Обзор», чтобы выбрать APK-файл.</value>
+  </data>
+  <data name="BrowseProjectFolderTip" xml:space="preserve">
+    <value>Подсказка: нажмите «Обзор», чтобы выбрать папку проекта.</value>
+  </data>
+  <data name="MenuPatch" xml:space="preserve">
+    <value>Пропатчить APK</value>
+  </data>
+  <data name="PatchHeader" xml:space="preserve">
+    <value>Пропатчить APK</value>
+  </data>
+  <data name="PatchSignOutputApk" xml:space="preserve">
+    <value>Подписывать выходной APK (ubersigner)</value>
+  </data>
+  <data name="PatchScriptProfile" xml:space="preserve">
+    <value>Профиль скрипта</value>
+  </data>
+  <data name="PatchDexPreservationMode" xml:space="preserve">
+    <value>Режим сохранения DEX</value>
+  </data>
+  <data name="PatchOutputLabel" xml:space="preserve">
+    <value>Вывод</value>
+  </data>
+  <data name="PatchOutputApkNamePlaceholder" xml:space="preserve">
+    <value>patched.apk</value>
+  </data>
+  <data name="PatchScriptInjectFridaGadget" xml:space="preserve">
+    <value>Inject gadget and custom script</value>
+  </data>
+  <data name="PatchDexDisabledDefault" xml:space="preserve">
+    <value>Отключено (по умолчанию)</value>
+  </data>
+  <data name="PatchDexPreserveUnmodifiedSecondary" xml:space="preserve">
+    <value>Сохранять неизменённые secondary dex</value>
+  </data>
+  <data name="PatchDexReplaceAllDangerous" xml:space="preserve">
+    <value>Заменить все dex (опасно)</value>
+  </data>
+  <data name="PatchErrorSelectApk" xml:space="preserve">
+    <value>Пожалуйста, выберите APK-файл для патча.</value>
+  </data>
+  <data name="PatchErrorMissingApkTitle" xml:space="preserve">
+    <value>APK не выбран</value>
+  </data>
+  <data name="PatchDangerousDexConfirmation" xml:space="preserve">
+    <value>Режим замены всех dex может отбросить внедрённые smali-изменения. Продолжайте только если понимаете риск.</value>
+  </data>
+  <data name="PatchDangerousDexTitle" xml:space="preserve">
+    <value>Опасная замена dex</value>
+  </data>
+  <data name="PatchLogDangerousDexCancelled" xml:space="preserve">
+    <value>[WARN] Опасная замена dex отменена пользователем.</value>
+  </data>
+  <data name="PatchLogStartingPipeline" xml:space="preserve">
+    <value>Запуск конвейера патчинга...</value>
+  </data>
+  <data name="PatchLogCreated" xml:space="preserve">
+    <value>Создан патченный APK: {0}</value>
+  </data>
+  <data name="PatchInfoCompleteMessage" xml:space="preserve">
+    <value>Патчинг успешно завершён.
+Выходной файл: {0}</value>
+  </data>
+  <data name="PatchInfoCompleteTitle" xml:space="preserve">
+    <value>Патчинг завершён</value>
+  </data>
+  <data name="PatchErrorFailedMessage" xml:space="preserve">
+    <value>Патчинг не удался. Подробности смотрите в консоли.</value>
+  </data>
+  <data name="PatchErrorFailedTitle" xml:space="preserve">
+    <value>Сбой патчинга</value>
+  </data>
+  <data name="PatchPreviewHeader" xml:space="preserve">
+    <value>Предпросмотр патча:</value>
+  </data>
+  <data name="PatchPreviewInputApk" xml:space="preserve">
+    <value>Входной APK: {0}</value>
+  </data>
+  <data name="PatchPreviewSelectApk" xml:space="preserve">
+    <value>&lt;выберите apk&gt;</value>
+  </data>
+  <data name="PatchPreviewOutputApk" xml:space="preserve">
+    <value>Выходной APK: {0}</value>
+  </data>
+  <data name="PatchPreviewOutputApkPlaceholder" xml:space="preserve">
+    <value>&lt;выходной apk&gt;</value>
+  </data>
+  <data name="PatchPreviewDecodeResources" xml:space="preserve">
+    <value>Декодирование ресурсов: True (обязательно)</value>
+  </data>
+  <data name="PatchPreviewDecodeSources" xml:space="preserve">
+    <value>Декодирование исходников: True (обязательно)</value>
+  </data>
+  <data name="PatchPreviewUseAapt2" xml:space="preserve">
+    <value>Использование AAPT2: False (по умолчанию)</value>
+  </data>
+  <data name="PatchPreviewScriptProfile" xml:space="preserve">
+    <value>Профиль скрипта: {0}</value>
+  </data>
+  <data name="PatchPreviewDexPreservation" xml:space="preserve">
+    <value>Сохранение dex: {0}</value>
+  </data>
+  <data name="PatchPreviewSignOutput" xml:space="preserve">
+    <value>Подпись результата: {0}</value>
+  </data>
+  <data name="ThemeLabel" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="ThemeModeDark" xml:space="preserve">
+    <value>Тёмная тема</value>
+  </data>
+  <data name="ThemeModeLight" xml:space="preserve">
+    <value>Светлая тема</value>
+  </data>
+  <data name="PatchInjectForAllArchitectures" xml:space="preserve">
+    <value>Инжектировать для всех архитектур</value>
+  </data>
+  <data name="PatchSkipDexValidation" xml:space="preserve">
+    <value>Пропустить финальную проверку Dex</value>
+  </data>
+  <data name="PatchOpenFolder" xml:space="preserve">
+    <value>Открыть папку</value>
+  </data>
+  <data name="PatchLogScriptProfile" xml:space="preserve">
+    <value>Профиль скрипта: {0}</value>
+  </data>
+  <data name="PatchLogRunSummary" xml:space="preserve">
+    <value>Патчинг '{0}' -> '{1}' (sign={2}, decodeRes={3}, decodeSrc={4}, aapt2={5}, dexMode={6})</value>
+  </data>
+  <data name="PatchPreviewInjectAllArchitectures" xml:space="preserve">
+    <value>- Инжектировать для всех архитектур: {0}</value>
+  </data>
+  <data name="PatchPreviewSkipDexValidation" xml:space="preserve">
+    <value>- Пропустить финальную проверку Dex: {0}</value>
+  </data>
+  <data name="PatchPreviewAddCustomScript" xml:space="preserve">
+    <value>- Добавить пользовательский скрипт: {0}</value>
+  </data>
+  <data name="DeviceToolsHeader" xml:space="preserve">
+    <value>Инструменты устройства</value>
+  </data>
+  <data name="DeviceToolsSubtitle" xml:space="preserve">
+    <value>Устанавливайте APK, запускайте активности и выполняйте часто используемые команды ADB shell.</value>
+  </data>
+  <data name="DeviceToolsConnection" xml:space="preserve">
+    <value>Подключение</value>
+  </data>
+  <data name="DeviceToolsSelectDeviceHelp" xml:space="preserve">
+    <value>Выберите подключённое Android-устройство для инструментов APK и shell.</value>
+  </data>
+  <data name="DeviceToolsRefreshDevices" xml:space="preserve">
+    <value>Обновить устройства</value>
+  </data>
+  <data name="DeviceToolsAdbPath" xml:space="preserve">
+    <value>Путь к ADB</value>
+  </data>
+  <data name="DeviceToolsChooseWorkflow" xml:space="preserve">
+    <value>Выберите сценарий</value>
+  </data>
+  <data name="DeviceToolsWorkflowHelp" xml:space="preserve">
+    <value>Переключайтесь между установкой, запуском, управлением приложением и shell-инструментами.</value>
+  </data>
+  <data name="DeviceToolsInstallApkPackage" xml:space="preserve">
+    <value>Установка APK-пакета</value>
+  </data>
+  <data name="DeviceToolsInstallApkHelp" xml:space="preserve">
+    <value>Выберите APK-файл, установите его на активное устройство или прочитайте из него метаданные пакета.</value>
+  </data>
+  <data name="DeviceToolsApkFile" xml:space="preserve">
+    <value>APK-файл</value>
+  </data>
+  <data name="DeviceToolsApkPathWatermark" xml:space="preserve">
+    <value>/path/to/app.apk</value>
+  </data>
+  <data name="DeviceToolsInstallApk" xml:space="preserve">
+    <value>Установить APK</value>
+  </data>
+  <data name="DeviceToolsDetectPackage" xml:space="preserve">
+    <value>Определить пакет</value>
+  </data>
+  <data name="DeviceToolsClearApkSelection" xml:space="preserve">
+    <value>Очистить выбор APK</value>
+  </data>
+  <data name="DeviceToolsConnectDeviceHint" xml:space="preserve">
+    <value>Подключите доступное Android-устройство, чтобы включить эти действия.</value>
+  </data>
+  <data name="DeviceToolsLaunchInstalledApp" xml:space="preserve">
+    <value>Запуск установленного приложения</value>
+  </data>
+  <data name="DeviceToolsLaunchHelp" xml:space="preserve">
+    <value>Введите пакет, при необходимости выберите активность, затем запустите её или проверьте текущую активность на переднем плане.</value>
+  </data>
+  <data name="DeviceToolsPackageName" xml:space="preserve">
+    <value>Имя пакета</value>
+  </data>
+  <data name="DeviceToolsPackageWatermark" xml:space="preserve">
+    <value>com.example.app</value>
+  </data>
+  <data name="DeviceToolsActivity" xml:space="preserve">
+    <value>Активность</value>
+  </data>
+  <data name="DeviceToolsActivityWatermark" xml:space="preserve">
+    <value>.MainActivity или полное имя класса</value>
+  </data>
+  <data name="DeviceToolsDetectedActivities" xml:space="preserve">
+    <value>Найденные активности</value>
+  </data>
+  <data name="DeviceToolsLaunchApp" xml:space="preserve">
+    <value>Запустить приложение</value>
+  </data>
+  <data name="DeviceToolsLaunchActivity" xml:space="preserve">
+    <value>Запустить активность</value>
+  </data>
+  <data name="DeviceToolsCurrentActivity" xml:space="preserve">
+    <value>Текущая активность</value>
+  </data>
+  <data name="DeviceToolsClear" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="DeviceToolsPackageRequiredHint" xml:space="preserve">
+    <value>Введите имя пакета, чтобы продолжить.</value>
+  </data>
+  <data name="DeviceToolsManageInstalledApp" xml:space="preserve">
+    <value>Управление установленным приложением</value>
+  </data>
+  <data name="DeviceToolsManageHelp" xml:space="preserve">
+    <value>Укажите пакет, затем остановите его, сбросьте данные, удалите или просмотрите сведения о пакете.</value>
+  </data>
+  <data name="DeviceToolsForceStop" xml:space="preserve">
+    <value>Остановить принудительно</value>
+  </data>
+  <data name="DeviceToolsClearData" xml:space="preserve">
+    <value>Очистить данные</value>
+  </data>
+  <data name="DeviceToolsUninstall" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="DeviceToolsSearchPackage" xml:space="preserve">
+    <value>Найти пакет</value>
+  </data>
+  <data name="DeviceToolsAppPath" xml:space="preserve">
+    <value>Путь приложения</value>
+  </data>
+  <data name="DeviceToolsUtilities" xml:space="preserve">
+    <value>Утилиты</value>
+  </data>
+  <data name="DeviceToolsPackageUtilitiesHelp" xml:space="preserve">
+    <value>Безопасные действия для выбранного устройства и пакета.</value>
+  </data>
+  <data name="DeviceToolsOpenAppSettings" xml:space="preserve">
+    <value>Открыть настройки приложения</value>
+  </data>
+  <data name="DeviceToolsCopyApkFromDevice" xml:space="preserve">
+    <value>Скопировать APK с устройства</value>
+  </data>
+  <data name="DeviceToolsLogcatForPackage" xml:space="preserve">
+    <value>Logcat для пакета</value>
+  </data>
+  <data name="DeviceToolsRunAdbShellCommands" xml:space="preserve">
+    <value>Выполнение команд ADB shell</value>
+  </data>
+  <data name="DeviceToolsShellHelp" xml:space="preserve">
+    <value>Запустите готовую команду или введите shell/raw ADB-аргументы для выбранного устройства.</value>
+  </data>
+  <data name="DeviceToolsPreset" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="DeviceToolsRunPreset" xml:space="preserve">
+    <value>Запустить шаблон</value>
+  </data>
+  <data name="DeviceToolsCommand" xml:space="preserve">
+    <value>Команда</value>
+  </data>
+  <data name="DeviceToolsCommandWatermark" xml:space="preserve">
+    <value>getprop ro.product.model</value>
+  </data>
+  <data name="DeviceToolsRunShell" xml:space="preserve">
+    <value>Запустить shell</value>
+  </data>
+  <data name="DeviceToolsRunAdbArgs" xml:space="preserve">
+    <value>Запустить ADB-аргументы</value>
+  </data>
+  <data name="DeviceToolsRunAdbArgsTip" xml:space="preserve">
+    <value>Выполняет текст как raw adb-аргументы после выбранного устройства (-s &lt;serial&gt;). Пример: devices -l или shell getprop ro.product.model.</value>
+  </data>
+  <data name="DeviceToolsScreenUtilitiesHelp" xml:space="preserve">
+    <value>Сделайте скриншот или запишите короткий MP4 без изменения данных приложения.</value>
+  </data>
+  <data name="DeviceToolsScreenshot" xml:space="preserve">
+    <value>Скриншот</value>
+  </data>
+  <data name="DeviceToolsStartScreenRecord" xml:space="preserve">
+    <value>Начать запись экрана</value>
+  </data>
+  <data name="DeviceToolsStopScreenRecord" xml:space="preserve">
+    <value>Остановить запись экрана</value>
+  </data>
+  <data name="DeviceToolsRecordingActiveHint" xml:space="preserve">
+    <value>Запись активна на выбранном устройстве, пока вы её не остановите.</value>
+  </data>
+  <data name="DeviceToolsCommandOutput" xml:space="preserve">
+    <value>Вывод команды</value>
+  </data>
+  <data name="DeviceToolsCommandOutputHelp" xml:space="preserve">
+    <value>Последний вывод команды отображается ниже.</value>
+  </data>
+  <data name="MenuDeviceTools" xml:space="preserve">
+    <value>Инструменты устройства</value>
+  </data>
+  <data name="DeviceToolsPresetModel" xml:space="preserve">
+    <value>Модель</value>
+  </data>
+  <data name="DeviceToolsPresetAndroidRelease" xml:space="preserve">
+    <value>Версия Android</value>
+  </data>
+  <data name="DeviceToolsPresetSdk" xml:space="preserve">
+    <value>SDK</value>
+  </data>
+  <data name="DeviceToolsPresetCpuAbi" xml:space="preserve">
+    <value>CPU ABI</value>
+  </data>
+  <data name="DeviceToolsPresetListPackages" xml:space="preserve">
+    <value>Список пакетов</value>
+  </data>
+  <data name="DeviceToolsPresetThirdPartyPackages" xml:space="preserve">
+    <value>Сторонние пакеты</value>
+  </data>
+  <data name="DeviceToolsPresetSearchPackage" xml:space="preserve">
+    <value>Найти пакет</value>
+  </data>
+  <data name="DeviceToolsPresetAppPath" xml:space="preserve">
+    <value>Путь приложения</value>
+  </data>
+  <data name="DeviceToolsPresetCurrentActivity" xml:space="preserve">
+    <value>Текущая активность</value>
+  </data>
+  <data name="DeviceToolsPresetReboot" xml:space="preserve">
+    <value>Перезагрузка</value>
+  </data>
+  <data name="DeviceToolsPresetAdbRoot" xml:space="preserve">
+    <value>ADB root</value>
+  </data>
+  <data name="DeviceToolsPresetAdbRemount" xml:space="preserve">
+    <value>ADB remount</value>
+  </data>
+  <data name="DeviceToolsPresetLogcatForPackage" xml:space="preserve">
+    <value>Logcat для пакета</value>
+  </data>
+  <data name="DeviceToolsModeInstallApk" xml:space="preserve">
+    <value>Установить APK</value>
+  </data>
+  <data name="DeviceToolsModeLaunch" xml:space="preserve">
+    <value>Запуск</value>
+  </data>
+  <data name="DeviceToolsModeManageApp" xml:space="preserve">
+    <value>Управление приложением</value>
+  </data>
+  <data name="DeviceToolsModeShell" xml:space="preserve">
+    <value>Shell</value>
+  </data>
+  <data name="DeviceToolsAdbChecking" xml:space="preserve">
+    <value>ADB: проверка...</value>
+  </data>
+  <data name="DeviceToolsAdbFound" xml:space="preserve">
+    <value>ADB: найден</value>
+  </data>
+  <data name="DeviceToolsAdbNotFound" xml:space="preserve">
+    <value>ADB: не найден</value>
+  </data>
+  <data name="DeviceToolsAdbNotChecked" xml:space="preserve">
+    <value>ADB: не проверен</value>
+  </data>
+  <data name="DeviceToolsCheckingDevices" xml:space="preserve">
+    <value>Проверка устройств...</value>
+  </data>
+  <data name="DeviceToolsNoConnectedDevices" xml:space="preserve">
+    <value>Android-устройство не подключено. Подключите устройство и включите отладку по USB.</value>
+  </data>
+  <data name="DeviceToolsScreenRecordInProgress" xml:space="preserve">
+    <value>Идёт запись. Нажмите «Остановить запись экрана», чтобы завершить сеанс adb shell screenrecord, после чего APKCook скачает MP4.</value>
+  </data>
+  <data name="DeviceToolsScreenRecordReady" xml:space="preserve">
+    <value>«Начать запись экрана» запускает adb shell screenrecord и сохраняет MP4 после остановки.</value>
+  </data>
+  <data name="PatchBetaWarning" xml:space="preserve">
+    <value>Бета-функция. Используйте на свой риск</value>
+  </data>
+  <data name="PatchAddCustomScript" xml:space="preserve">
+    <value>Добавить пользовательский скрипт</value>
+  </data>
+  <data name="PatchScriptSampleInjection" xml:space="preserve">
+    <value>Пример внедрения</value>
+  </data>
+  <data name="PatchScriptSampleInjectionInfo" xml:space="preserve">
+    <value>Пример внедрения добавляет только помощник журнала smali; нативная библиотека не загружается.</value>
+  </data>
+  <data name="DeviceToolsDeviceOnline" xml:space="preserve">
+    <value>Устройство: онлайн</value>
+  </data>
+  <data name="DeviceToolsDeviceOffline" xml:space="preserve">
+    <value>Устройство: офлайн</value>
+  </data>
+</root>

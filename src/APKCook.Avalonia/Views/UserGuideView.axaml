@@ -1,0 +1,218 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:APKCook.Core.ViewModels;assembly=APKCook.Core"
+             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="600"
+             x:Class="APKCook.Avalonia.Views.UserGuideView"
+             x:DataType="vm:MainViewModel">
+
+    <!-- Frosted Glass Popup Container -->
+    <Border Background="#E6101422"
+            BorderBrush="#28FFFFFF"
+            BorderThickness="1.5"
+            CornerRadius="24"
+            BoxShadow="0 24 64 0 #40000000"
+            Padding="28"
+            Width="880"
+            MinHeight="400"
+            MaxHeight="620"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+        <Grid RowDefinitions="Auto,*">
+            <!-- Header -->
+            <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Margin="0,0,0,18">
+                <Border Width="40" Height="40"
+                        CornerRadius="20"
+                        Background="#18FFFFFF"
+                        BorderBrush="#20FFFFFF"
+                        BorderThickness="1"
+                        Margin="0,0,14,0">
+                    <Path Data="M 12 4 C 7.58 4 4 7.58 4 12 C 4 16.42 7.58 20 12 20 C 16.42 20 20 16.42 20 12 C 20 7.58 16.42 4 12 4 Z M 11 8 L 13 8 L 13 10 L 11 10 Z M 11 12 L 13 12 L 13 16 L 11 16 Z"
+                          Fill="#FFFFFF"
+                          Width="14" Height="14"
+                          Stretch="Uniform"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"/>
+                </Border>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="APKCook User Guide"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Foreground="#FFFFFF" />
+                    <TextBlock Text="Comprehensive handbook for reverse engineering, patching, and device tooling"
+                               FontSize="11"
+                               Foreground="#8291A8"
+                               Margin="0,2,0,0" />
+                </StackPanel>
+
+                <Button Grid.Column="2"
+                        Classes="primary-action"
+                        Command="{Binding CloseUserGuideCommand}"
+                        Content="Close"
+                        Padding="18,6"
+                        CornerRadius="18"
+                        VerticalAlignment="Center" />
+            </Grid>
+
+            <!-- Guide Sections -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel Spacing="14" Margin="0,0,6,0">
+
+                    <!-- Section 1: Workflow Overview -->
+                    <Border Background="#0CFFFFFF"
+                            BorderBrush="#14FFFFFF"
+                            BorderThickness="1"
+                            CornerRadius="18"
+                            Padding="18">
+                        <StackPanel Spacing="10">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <Border Width="24" Height="24" CornerRadius="12"
+                                        Background="#18FFFFFF"
+                                        BorderBrush="#20FFFFFF"
+                                        BorderThickness="1">
+                                    <TextBlock Text="1"
+                                               FontWeight="Bold"
+                                               FontSize="11"
+                                               Foreground="#FFFFFF"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Core Reverse Engineering Workflow"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#FFFFFF"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+                            <TextBlock Text="APKCook streamlines the full mobile application security lifecycle:"
+                                       FontSize="12"
+                                       Foreground="#8291A8" />
+                            <Grid ColumnDefinitions="*,*,*" Margin="0,4,0,0">
+                                <Border Grid.Column="0" Background="#0AFFFFFF" BorderBrush="#10FFFFFF" BorderThickness="1" CornerRadius="14" Padding="12" Margin="0,0,5,0">
+                                    <StackPanel Spacing="3">
+                                        <TextBlock Text="1. Decompile" FontWeight="SemiBold" FontSize="12" Foreground="#FFFFFF"/>
+                                        <TextBlock Text="Extract resources, assets, and smali bytecode using Apktool." FontSize="10" Foreground="#8291A8" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="1" Background="#0AFFFFFF" BorderBrush="#10FFFFFF" BorderThickness="1" CornerRadius="14" Padding="12" Margin="3,0,3,0">
+                                    <StackPanel Spacing="3">
+                                        <TextBlock Text="2. Audit &amp; Patch" FontWeight="SemiBold" FontSize="12" Foreground="#94A3B8"/>
+                                        <TextBlock Text="Analyze smali for secrets/APIs or inject Frida dynamic instrumentation." FontSize="10" Foreground="#8291A8" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border Grid.Column="2" Background="#0AFFFFFF" BorderBrush="#10FFFFFF" BorderThickness="1" CornerRadius="14" Padding="12" Margin="5,0,0,0">
+                                    <StackPanel Spacing="3">
+                                        <TextBlock Text="3. Rebuild &amp; Sign" FontWeight="SemiBold" FontSize="12" Foreground="#F59E0B"/>
+                                        <TextBlock Text="Repackage APK and sign with v1/v2/v3 signatures ready for deployment." FontSize="10" Foreground="#8291A8" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Section 2: Decompile & Build -->
+                    <Border Background="#0CFFFFFF"
+                            BorderBrush="#14FFFFFF"
+                            BorderThickness="1"
+                            CornerRadius="18"
+                            Padding="18">
+                        <StackPanel Spacing="8">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <Border Width="24" Height="24" CornerRadius="12"
+                                        Background="#18FFFFFF"
+                                        BorderBrush="#20FFFFFF"
+                                        BorderThickness="1">
+                                    <TextBlock Text="2"
+                                               FontWeight="Bold"
+                                               FontSize="11"
+                                               Foreground="#FFFFFF"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Decompiling &amp; Building APKs"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#FFFFFF"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+                            <TextBlock Text="• Decompile View: Select an APK file and specify the destination folder. You can optionally toggle decoding of raw manifest or resources."
+                                       FontSize="12" Foreground="#8291A8" TextWrapping="Wrap" />
+                            <TextBlock Text="• Build View: Pick the decompiled project folder. APKCook automatically builds with Apktool and applies cryptographic signing using Uber-Apk-Signer."
+                                       FontSize="12" Foreground="#8291A8" TextWrapping="Wrap" />
+                            <TextBlock Text="• Real-Time Console: Watch build and decompile progress line-by-line with color-coded diagnostic logs."
+                                       FontSize="12" Foreground="#8291A8" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Section 3: Frida & Patching -->
+                    <Border Background="#0CFFFFFF"
+                            BorderBrush="#14FFFFFF"
+                            BorderThickness="1"
+                            CornerRadius="18"
+                            Padding="18">
+                        <StackPanel Spacing="8">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <Border Width="24" Height="24" CornerRadius="12"
+                                        Background="#18FFFFFF"
+                                        BorderBrush="#20FFFFFF"
+                                        BorderThickness="1">
+                                    <TextBlock Text="3"
+                                               FontWeight="Bold"
+                                               FontSize="11"
+                                               Foreground="#FFFFFF"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Frida Dynamic Gadget Injection (Patching)"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#FFFFFF"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+                            <TextBlock Text="• Automatically downloads the matched Frida Gadget native library for ARM64, ARM, x86, or x86_64 architectures."
+                                       FontSize="12" Foreground="#8291A8" TextWrapping="Wrap" />
+                            <TextBlock Text="• Injects gadget loading bytecode into the application's launcher activity or Application class automatically."
+                                       FontSize="12" Foreground="#8291A8" TextWrapping="Wrap" />
+                            <TextBlock Text="• Enables dynamic instrumentation without needing root access on the target device."
+                                       FontSize="12" Foreground="#8291A8" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Section 4: APK Analyser & Device Tools -->
+                    <Border Background="#0CFFFFFF"
+                            BorderBrush="#14FFFFFF"
+                            BorderThickness="1"
+                            CornerRadius="18"
+                            Padding="18">
+                        <StackPanel Spacing="8">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <Border Width="24" Height="24" CornerRadius="12"
+                                        Background="#18FFFFFF"
+                                        BorderBrush="#20FFFFFF"
+                                        BorderThickness="1">
+                                    <TextBlock Text="4"
+                                               FontWeight="Bold"
+                                               FontSize="11"
+                                               Foreground="#FFFFFF"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="APK Analyser &amp; Device Tools"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#FFFFFF"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+                            <TextBlock Text="• APK Analyser: Audits smali code for hardcoded secrets, API tokens, HTTP/HTTPS endpoints, sensitive Android permissions, and security risks."
+                                       FontSize="12" Foreground="#8291A8" TextWrapping="Wrap" />
+                            <TextBlock Text="• Device Tools: Manage ADB connected devices, connect via Wireless ADB (IP and Port), push/pull files, capture logs, and install patched APKs directly."
+                                       FontSize="12" Foreground="#8291A8" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,99 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:APKCook.Core.ViewModels;assembly=APKCook.Core"
+             xmlns:services="clr-namespace:APKCook.Core.Services;assembly=APKCook.Core"
+             x:Class="APKCook.Avalonia.Views.AnalyserView"
+             x:DataType="vm:AnalyserViewModel">
+    <Grid RowDefinitions="Auto,Auto,*,Auto" RowSpacing="16" Margin="20">
+        <StackPanel Spacing="6">
+            <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[AnalyserHeader]}"
+                       Classes="page-title" />
+            <Border Width="86"
+                    Height="3"
+                    HorizontalAlignment="Left"
+                    Background="{DynamicResource CyberAccentSecondaryBrush}"
+                    CornerRadius="2" />
+        </StackPanel>
+
+        <Border Grid.Row="1"
+                Classes="card">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                <StackPanel Spacing="6">
+                    <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[SelectProjectFolder]}"
+                               FontWeight="SemiBold" />
+                    <TextBox Text="{Binding ProjectPath}"
+                             Watermark="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[ProjectFolderPathPlaceholder]}"
+                             IsReadOnly="True"
+                             IsTabStop="False"
+                             IsHitTestVisible="False" />
+                    <TextBlock Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[BrowseProjectFolderTip]}"
+                               Classes="helper-text"
+                               IsVisible="{Binding IsHintVisible}" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Spacing="8" VerticalAlignment="Center">
+                    <Button Content="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[Browse]}"
+                            Command="{Binding BrowseProjectCommand}"
+                            MinWidth="120"
+                            Height="38"
+                            FontSize="14"
+                            VerticalContentAlignment="Center"
+                            Padding="16,0" />
+                    <Button Content="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[RunAnalysis]}"
+                            Command="{Binding RunAnalysisCommand}"
+                            Classes="primary-action"
+                            MinWidth="120"
+                            Height="38"
+                            FontSize="14"
+                            VerticalContentAlignment="Center"
+                            Padding="16,0" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Expander Grid.Row="2"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  IsExpanded="False">
+            <Expander.Header>
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                    <Border Classes="console-header-dot"
+                            VerticalAlignment="Center" />
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[ConsoleLog]}"
+                               Classes="console-title"
+                               VerticalAlignment="Center" />
+                    <Border Grid.Column="2"
+                            Classes="live-log-pill"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="LIVE LOG"
+                                   Classes="live-log-pill-text" />
+                    </Border>
+                </Grid>
+            </Expander.Header>
+            <Border Classes="console-card compact"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+                <Grid RowDefinitions="Auto,*" RowSpacing="8">
+                    <Border Classes="console-divider" />
+                    <TextBox Grid.Row="1"
+                             Text="{Binding ConsoleLog}"
+                             IsReadOnly="True"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             Classes="terminal-output"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                             MinHeight="260" />
+                </Grid>
+            </Border>
+        </Expander>
+
+        <Button Grid.Row="3"
+                Content="{Binding Source={x:Static services:LocalizationService.Instance}, Path=[SaveReport]}"
+                Command="{Binding SaveReportCommand}"
+                HorizontalAlignment="Right"
+                Width="140" />
+    </Grid>
+</UserControl>
