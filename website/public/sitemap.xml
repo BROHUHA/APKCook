@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://brohuha.github.io/APKCook/</loc>
+    <loc>https://apkcook.vercel.app/</loc>
     <lastmod>2026-09-23</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://apkcook.vercel.app/APKCook.png</image:loc>
+      <image:title>APKCook Logo</image:title>
+      <image:caption>APKCook Android Reverse Engineering and Application Security Laboratory Logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://apkcook.vercel.app/images/pulse_apk_decompile.png</image:loc>
+      <image:title>APKCook Decompilation Workflow</image:title>
+      <image:caption>Apktool Dalvik bytecode decompilation and Smali disassembly interface</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://apkcook.vercel.app/images/pulse_apk_build.png</image:loc>
+      <image:title>APKCook Build and Sign Workflow</image:title>
+      <image:caption>Recompile and dual-scheme cryptographic signing with AAPT2 and Uber-APK-Signer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://apkcook.vercel.app/images/patching.png</image:loc>
+      <image:title>APKCook Frida Gadget Dynamic Patching</image:title>
+      <image:caption>Frida gadget injection and dynamic instrumentation automation</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://apkcook.vercel.app/images/pulse_apk_analysis.png</image:loc>
+      <image:title>APKCook Static Security Vulnerability Scanner</image:title>
+      <image:caption>Smali AST security audit for root detection, emulator checks, and credentials</image:caption>
+    </image:image>
   </url>
 </urlset>
