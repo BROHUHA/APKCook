@@ -5,12 +5,13 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/BROHUHA/APKCook/releases/latest"><img alt="Latest Release" src="https://img.shields.io/github/v/release/BROHUHA/APKCook?style=for-the-badge&logo=github&color=2563EB" /></a>
   <a href="https://github.com/BROHUHA/APKCook/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/BROHUHA/APKCook?style=for-the-badge" /></a>
   <a href="https://github.com/BROHUHA/APKCook/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/BROHUHA/APKCook?style=for-the-badge" /></a>
   <a href="https://github.com/BROHUHA/APKCook/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/BROHUHA/APKCook?style=for-the-badge" /></a>
   <a href="LICENSE.md"><img alt="License" src="https://img.shields.io/github/license/BROHUHA/APKCook?style=for-the-badge" /></a>
-  <a href="https://github.com/BROHUHA/APKCook/commits"><img alt="Last commit" src="https://img.shields.io/github/last-commit/BROHUHA/APKCook?style=for-the-badge" /></a>
 </p>
+
 <p align="center">
   🌍 <strong>Languages</strong><br>
   <a href="README.md">English</a> |
@@ -34,11 +35,19 @@
   <a href="README.zh.md">中文</a>
 </p>
 
-**APKCook** is a professional-grade, cross-platform GUI for Android reverse engineering and security analysis, built with Avalonia and .NET 8. It combines the raw power of `apktool` with advanced static analysis capabilities, wrapped in a high-performance **Liquid Glass / Frost Glassmorphism** interface featuring soft ambient gradients, vibrant purple and blue hues, and subtle layered depth. APKCook streamlines the entire workflow from decompilation to analysis, rebuilding, and signing.
+---
 
-[Overview of APKCook functionality](https://youtu.be/Mkdt0c-7Wwg)
+### 🚀 Download Latest Release (v0.0.1)
 
-[APKCook Patching functionality overview](https://youtu.be/iu-LOHj5QVM)
+Get the standalone Windows executable (self-contained, no .NET installation needed):
+
+👉 **[Download APKCook.exe (v0.0.1 for Windows x64)](https://github.com/BROHUHA/APKCook/releases/download/v0.0.1/APKCook.exe)**
+
+Or view all release assets on the **[Releases Page](https://github.com/BROHUHA/APKCook/releases/latest)**.
+
+---
+
+**APKCook** is a professional-grade, cross-platform GUI for Android reverse engineering and security analysis, built with Avalonia UI and .NET 8. It combines the raw power of `apktool` with advanced static analysis capabilities, wrapped in a high-performance **Liquid Glass / Frosted Glassmorphism** interface featuring continuous translucent contours, subtle ambient depth, and adaptive Dark & Light themes. APKCook streamlines the entire mobile security workflow from decompilation to analysis, rebuilding, and signing.
 
 APKCook is organized into a single-window workflow with a left sidebar for each tool: **Decompile**, **Build APK**, **Patch APK**, **Analyser**, **Settings**, **About**, and an instant in-app **User Guide**. The optional **Device Tools** tab can be enabled from **Settings** when you want ADB-assisted workflows. Each section focuses on one stage of the APK lifecycle so you can move from decoding to analysis, patching, device interaction, rebuilding, and signing without leaving the app.
 
@@ -68,7 +77,7 @@ APKCook is organized into a single-window workflow with a left sidebar for each 
 
 - **🛡️ Static Security Analysis**: Automatically scan Smali code for vulnerabilities, including root detection, emulator checks, hardcoded credentials, and insecure SQL/HTTP usage.
 - **⚙️ Dynamic Rule Engine**: Fully customizable analysis rules via `smali_analysis_rules.json`. Modify detection patterns on the fly without restarting the application. Uses caching for optimal performance.
-- **💎 Liquid Glass UI/UX**: State-of-the-art frosted glass aesthetic featuring continuous pill contours, vibrant purple & royal blue palettes, champagne gold accents, specular borders, and real-time console telemetry.
+- **💎 Liquid Glass UI/UX**: State-of-the-art frosted glass aesthetic featuring continuous pill contours, adaptive dark obsidian and soft pearl palettes, specular borders, and real-time console telemetry.
 - **📖 In-App User Guide**: Instant, interactive step-by-step handbook built right into the sidebar footer for quick access across all reverse engineering tasks.
 - **📦 Complete Workflow**: Decompile, Analyze, Patch, Recompile, and Sign APKs in one unified environment.
 - **🧩 APK Patching**: Automate Frida gadget injection, manifest updates, dex validation, architecture selection, and optional output signing from the patching workspace.
@@ -100,83 +109,66 @@ APKCook includes a built-in static analyzer that scans decompiled code for commo
 
 1.  **Java Runtime Environment (JRE)**: Required for `apktool`. Ensure `java` is in your system `PATH`.
 2.  **Apktool**: You can download `apktool.jar` directly from APKCook by pressing the download button in **Settings**, or provide it manually from [ibotpeaches.github.io](https://ibotpeaches.github.io/Apktool/).
-3.  **Ubersign (Uber APK Signer)**: Required for signing rebuilt APKs. You can download the latest `uber-apk-signer.jar` automatically in **Settings**, or still provide it manually from the [GitHub releases](https://github.com/patrickfav/uber-apk-signer/releases).
-4.  **.NET 8.0 SDK/Runtime**: Required when building or running from source with `dotnet build` / `dotnet run`. Published desktop artifacts are built as self-contained packages where the platform build supports it.
-5.  **ADB / Android SDK platform-tools (optional)**: Required only for the beta **Device Tools** tab. APKCook can auto-detect `adb` from Settings, `ADB_PATH`, Android SDK environment variables, the default user SDK folder, or your system `PATH`. `aapt` from Android SDK build-tools enables APK package/activity detection.
-6.  **macOS hosts**: Release artifacts target Apple Silicon only (`osx-arm64`) and produce a self-contained `.app` bundle in a ZIP. Intel/x64 macOS builds are not produced by the release scripts. The generated bundle declares macOS 11.0 or newer as its minimum system version.
+3.  **Ubersign (Uber APK Signer)**: Required for signing rebuilt APKs. You can download the latest `uber-apk-signer.jar` automatically in **Settings**, or provide it manually from [GitHub releases](https://github.com/patrickfav/uber-apk-signer/releases).
+4.  **.NET 8.0 SDK/Runtime (Development only)**: Required when building or running from source. Published desktop release executables are **100% self-contained** and do not require .NET to be installed.
+5.  **ADB / Android SDK platform-tools (optional)**: Required only for the beta **Device Tools** tab. APKCook can auto-detect `adb` from Settings, `ADB_PATH`, Android SDK environment variables, the default user SDK folder, or your system `PATH`.
+6.  **macOS hosts**: Release artifacts target Apple Silicon (`osx-arm64`) and produce a self-contained `.app` bundle in a ZIP. Minimum macOS version: 11.0+.
 
 ## Quick Start Guide
 
-1.  **Download and Build**
-    ```powershell
-    dotnet build
-    dotnet run
-    ```
+### 1. Download Pre-built Release
+Download the latest standalone executable directly from **[GitHub Releases](https://github.com/BROHUHA/APKCook/releases/latest)**.
 
-    To create the Windows self-contained single-file executable and ZIP package:
-    ```powershell
-    powershell -ExecutionPolicy Bypass -File ./scripts/build-windows-exe.ps1
-    ```
+### 2. Building from Source
+```powershell
+# Clone the repository
+git clone https://github.com/BROHUHA/APKCook.git
+cd APKCook
 
-    To create the macOS Apple Silicon app bundle artifact:
-    ```bash
-    RID=osx-arm64 ./scripts/build-macos-binary.sh
-    ```
+# Build and run
+dotnet build
+dotnet run --project src/APKCook.Avalonia
+```
 
-    The macOS build uses ad-hoc signing by default for local and test builds. For production signing, install a Developer ID Application certificate in the macOS keychain and set `MACOS_CODESIGN_IDENTITY` to that certificate identity before running the script. To notarize the generated ZIP and staple the notarization ticket to the `.app` before the final ZIP is created, also set `APPLE_ID`, `APPLE_TEAM_ID`, and `APPLE_APP_SPECIFIC_PASSWORD`. GitHub Actions release builds read these values from repository secrets with the same names: `MACOS_CODESIGN_IDENTITY`, `APPLE_ID`, `APPLE_TEAM_ID`, and `APPLE_APP_SPECIFIC_PASSWORD`.
+To create a self-contained single-file executable:
+```powershell
+dotnet publish src/APKCook.Avalonia/APKCook.Avalonia.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o release
+```
 
-2.  **Setup**
-    - Open **Settings**.
-    - Link your `apktool.jar` and `uber-apk-signer.jar` paths, or use the built-in download buttons.
-    - Configure **ADB Path** only if auto-detection does not find your Android platform-tools installation.
-    - Choose language and dark/light theme preferences.
-    - Enable **Device Tools** under **Beta Features** if you need connected-device workflows.
-    - APKCook will display the Java runtime it detects from your environment variables.
+### 3. Setup
+- Open **Settings**.
+- Link your `apktool.jar` and `uber-apk-signer.jar` paths, or use the built-in one-click download buttons.
+- Configure **ADB Path** if auto-detection doesn't automatically locate your platform tools.
+- Choose language and dark/light theme preferences.
 
-3.  **Analyze an APK**
-    - **Decompile** your target APK using the Decompile tab.
-    - Switch to the **Analyser** tab.
-    - Select your decompiled project folder.
-    - Click **Analyze Smali** to generate a security report.
-    - Save the report from the footer action when you are ready.
+### 4. Basic Workflow
+1. **Decompile**: Load an APK in the Decompile tab and extract resources & Smali.
+2. **Analyze**: Open the Analyser tab to scan Smali for security vulnerabilities.
+3. **Patch**: Inject Frida gadget or modify smali code as needed.
+4. **Build & Sign**: Select the project directory in Build APK, toggle signing, and compile your new APK!
 
-4.  **Modify & Rebuild**
-    - Edit files in your project folder.
-    - Use the **Build** tab to recompile into a new APK.
-    - Toggle signing during the build step to sign the output APK.
+## 👨‍💻 Author & Maintainer
 
-5.  **Use Device Tools (optional beta)**
-    - Open **Settings** and enable **Device Tools**.
-    - Make sure `adb` is available through **ADB Path**, `ADB_PATH`, `ANDROID_HOME`, `ANDROID_SDK_ROOT`, `~/Android/Sdk/platform-tools`, or `PATH`.
-    - Connect a device with USB debugging enabled, refresh the device list, and choose a workflow such as install APK, launch/manage app, copy APK from device, screenshot, screen recording, presets, or custom shell/ADB commands.
+Developed and maintained by **Abin Binoy**:
+- 🌐 **Portfolio**: [abinbinoy.vercel.app](https://abinbinoy.vercel.app)
+- 🐙 **GitHub**: [@BROHUHA](https://github.com/BROHUHA)
+- 💼 **Project Repository**: [BROHUHA/APKCook](https://github.com/BROHUHA/APKCook)
+
+### ❤️ Support the Project
+
+If APKCook has helped your security research or reverse engineering workflows, consider supporting its continuous development:
+- Support via the **Support Work** button in the sidebar footer or visit **[abinbinoy.vercel.app](https://abinbinoy.vercel.app)**.
 
 ## Technical Architecture
 
 APKCook utilizes a clean MVVM (Model-View-ViewModel) architecture:
-
-- **Core**: .NET 8.0, Avalonia (cross-platform UI).
+- **Core**: .NET 8.0, Avalonia UI (cross-platform).
 - **Analysis**: Custom Regex-based static analysis engine with hot-reloadable rules.
 - **Services**: Dedicated services for Apktool interaction, patch orchestration, Android Debug Bridge integration, file system monitoring, tool downloads, and settings management.
 
-## License
+## License & Attribution
 
-This project is open-source and available under the [Apache License 2.0](LICENSE.md).
-
-## Attribution and Copyright
-
-- Licensing terms are defined by [LICENSE.md](LICENSE.md) (Apache-2.0).
+- Copyright (c) 2026 **Abin Binoy**.
+- Distributed under the [Apache License 2.0](LICENSE.md).
 - Contributor licensing and ownership terms are defined by [CLA.md](CLA.md).
-- Project-level copyright and attribution practices are documented in [NOTICE](NOTICE).
-- Per-file copyright/license headers are **optional** unless a file requires an explicit third-party notice; repository-level `LICENSE.md` and `NOTICE` remain authoritative.
-- Contributors do **not** need to add themselves to a separate acknowledgements list in this repository; attribution is handled through Git history, pull request metadata, and signed CLA records.
-
-### ❤️ Support the project
-
-If APKCook is useful for you, you can support its development by clicking the **Support Work** button in the sidebar footer.
-
-Even a small tip helps a lot.
-
-### Contributing
-
-We welcome contributions! Please note that all contributors must sign our [Contributor License Agreement (CLA)](CLA.md) to ensure that their work can be legally distributed.
-By submitting a pull request, you agree to the terms of the CLA.
+- Project attribution and notices are maintained in [NOTICE](NOTICE).
