@@ -47,7 +47,26 @@ Or view all release assets on the **[Releases Page](https://github.com/BROHUHA/A
 
 ---
 
-**APKCook** is a professional-grade, cross-platform GUI for Android reverse engineering and security analysis, built with Avalonia UI and .NET 8. It combines the raw power of `apktool` with advanced static analysis capabilities, wrapped in a high-performance **Liquid Glass / Frosted Glassmorphism** interface featuring continuous translucent contours, subtle ambient depth, and adaptive Dark & Light themes. APKCook streamlines the entire mobile security workflow from decompilation to analysis, rebuilding, and signing.
+## 🌟 About APKCook
+
+> **APKCook** is an all-in-one, modern Android reverse engineering and application security laboratory. Designed for penetration testers, security researchers, and mobile developers, APKCook replaces scattered command-line tools with a unified, fluid workspace.
+
+### 🎨 Frosted Glass Aesthetic
+APKCook features an artisanal **Liquid Glass / Frosted Glassmorphism** design system:
+- **Translucent Layered Panels**: Sleek glass cards with subtle ambient glow and specular edge highlights.
+- **Adaptive Theme Engine**: Effortlessly switches between deep obsidian dark mode and soft pearl light mode with 100% contrast preservation.
+- **Micro-Interactions**: Rounded pill navigation with dynamic hover states and real-time diagnostic telemetry.
+
+### 🛠️ Built With Modern Tech
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Framework** | [.NET 8](https://dotnet.microsoft.com/) | High-performance C# runtime with single-file publishing |
+| **UI Engine** | [Avalonia UI 11](https://avaloniaui.net/) | Cross-platform GPU-accelerated XAML presentation framework |
+| **Bytecode Tool** | [Apktool](https://ibotpeaches.github.io/Apktool/) | Industry standard APK decoding, smali disassembly, and recompilation |
+| **Instrumentation** | [Frida](https://frida.re/) | One-click dynamic instrumentation & gadget injection |
+| **Signing** | [Uber-APK-Signer](https://github.com/patrickfav/uber-apk-signer) | Cryptographic multi-scheme signing (v1, v2, v3) & zipalign verification |
+
+---
 
 APKCook is organized into a single-window workflow with a left sidebar for each tool: **Decompile**, **Build APK**, **Patch APK**, **Analyser**, **Settings**, **About**, and an instant in-app **User Guide**. The optional **Device Tools** tab can be enabled from **Settings** when you want ADB-assisted workflows. Each section focuses on one stage of the APK lifecycle so you can move from decoding to analysis, patching, device interaction, rebuilding, and signing without leaving the app.
 
