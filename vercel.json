@@ -2,7 +2,7 @@
   "buildCommand": "npm --prefix website run build",
   "outputDirectory": "website/dist",
   "installCommand": "npm --prefix website install",
-  "cleanUrls": true,
+  "cleanUrls": false,
   "headers": [
     {
       "source": "/(.*)",
