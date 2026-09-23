@@ -1154,54 +1154,6 @@ a {
   transform: translateY(0);
 }
 
-/* Responsive Overrides */
-@media (max-width: 1060px) {
-  .nav-link {
-    padding: 6px 10px;
-    font-size: 0.84rem;
-  }
-  .recessed-search {
-    width: 120px;
-  }
-  .recessed-search:focus-within {
-    width: 150px;
-  }
-}
-
-@media (max-width: 920px) {
-  .nav-links {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  .showcase-toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .toolbar-tabs {
-    justify-content: center;
-  }
-  .toolbar-group-left {
-    justify-content: center;
-  }
-  .feature-card {
-    border-radius: 30px;
-  }
-  .showcase-outer {
-    border-radius: 34px;
-    padding: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .recessed-search {
-    display: none;
-  }
-}
 
 /* ==========================================================================
    Interactive Modals & Frosted Overlays
@@ -1464,3 +1416,365 @@ a {
   background: #34d399;
   box-shadow: 0 0 8px #34d399;
 }
+
+/* ==========================================================================
+   Comprehensive Mobile & Tablet Responsiveness System
+   ========================================================================== */
+
+/* Tablet & Smaller Laptops */
+@media (max-width: 1060px) {
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 0.84rem;
+  }
+  .recessed-search {
+    width: 120px;
+  }
+  .recessed-search:focus-within {
+    width: 150px;
+  }
+}
+
+@media (max-width: 920px) {
+  .nav-links {
+    display: none;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .split-deck {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablets & Mobile Landscape */
+@media (max-width: 768px) {
+  .main-wrapper {
+    padding: 24px 16px 60px;
+    gap: 50px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .showcase-outer {
+    border-radius: 32px;
+    padding: 20px 16px;
+  }
+
+  .showcase-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .toolbar-group-left {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .toolbar-tabs {
+    justify-content: center;
+  }
+
+  .feature-card {
+    border-radius: 28px;
+    padding: 26px 22px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* Mobile Screens (iPhones, Android Phones) */
+@media (max-width: 580px) {
+  .top-nav {
+    padding: 0 10px;
+    top: 10px;
+    margin: 8px auto 0;
+  }
+
+  .nav-container {
+    padding: 7px 12px;
+    gap: 8px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .version-pill {
+    font-size: 0.68rem;
+    padding: 1px 6px;
+  }
+
+  .recessed-search {
+    display: none;
+  }
+
+  .nav-actions-right .glass-pill-btn.primary {
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+
+  .main-wrapper {
+    padding: 16px 10px 50px;
+    gap: 40px;
+  }
+
+  .hero-section {
+    padding: 10px 2px;
+    gap: 16px;
+  }
+
+  .hero-tag {
+    font-size: 0.74rem;
+    padding: 5px 12px;
+    max-width: 95vw;
+    line-height: 1.4;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 8.5vw, 2.55rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-subtitle {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 330px;
+    gap: 10px;
+  }
+
+  .hero-actions .glass-pill-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.94rem;
+  }
+
+  .hero-code-bar {
+    width: 100%;
+    max-width: 330px;
+    font-size: 0.74rem;
+    padding: 8px 12px;
+    justify-content: space-between;
+  }
+
+  .hero-code-bar span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 220px;
+  }
+
+  /* Showcase Mobile Layout */
+  .showcase-outer {
+    padding: 14px 12px;
+    border-radius: 26px;
+    gap: 14px;
+  }
+
+  .toolbar-group-left {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .toolbar-group-left .glass-icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .toolbar-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .tab-pill {
+    padding: 8px 6px;
+    font-size: 0.78rem;
+    gap: 6px;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+    text-align: center;
+  }
+
+  .showcase-viewport {
+    min-height: 220px;
+    border-radius: 18px;
+  }
+
+  .showcase-img {
+    max-height: 380px;
+  }
+
+  .showcase-caption {
+    padding: 14px 12px;
+    border-radius: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .caption-meta h3 {
+    font-size: 0.98rem;
+  }
+
+  .caption-meta p {
+    font-size: 0.82rem;
+  }
+
+  .caption-steps {
+    gap: 6px;
+  }
+
+  .step-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  /* Features & Capabilities Mobile */
+  .section-title {
+    font-size: clamp(1.6rem, 6.2vw, 2.1rem);
+  }
+
+  .section-desc {
+    font-size: 0.92rem;
+  }
+
+  .feature-card {
+    padding: 22px 18px;
+    border-radius: 24px;
+    gap: 12px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.12rem;
+  }
+
+  .feature-card p {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  /* Tech Badges */
+  .tech-badges {
+    gap: 8px;
+  }
+
+  .tech-pill {
+    padding: 7px 14px;
+    font-size: 0.78rem;
+  }
+
+  /* Split Deck: Terminal & Author */
+  .terminal-card {
+    padding: 20px 16px;
+    border-radius: 24px;
+  }
+
+  .terminal-body {
+    padding: 12px;
+    font-size: 0.76rem;
+    border-radius: 14px;
+  }
+
+  .author-card {
+    padding: 22px 18px;
+    border-radius: 24px;
+  }
+
+  .author-avatar {
+    width: 52px;
+    height: 52px;
+  }
+
+  .author-info h3 {
+    font-size: 1.12rem;
+  }
+
+  .author-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .author-links .glass-pill-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Modals Mobile */
+  .modal-window {
+    max-width: 95vw;
+    padding: 22px 16px;
+    border-radius: 24px;
+    gap: 16px;
+    max-height: 86vh;
+  }
+
+  .modal-title {
+    font-size: 1.12rem;
+  }
+
+  .setting-input-wrap {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .setting-input-wrap .glass-pill-btn {
+    align-self: flex-start;
+  }
+
+  .telemetry-screen {
+    font-size: 0.74rem;
+    max-height: 200px;
+  }
+
+  /* Toast Notification */
+  #toast-notification {
+    bottom: 18px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    max-width: 92vw;
+    text-align: center;
+  }
+}
+
+/* Extra Small Phones (iPhone SE, Galaxy A series, etc. < 380px) */
+@media (max-width: 380px) {
+  .brand-name {
+    font-size: 0.98rem;
+  }
+
+  .toolbar-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+}
+
